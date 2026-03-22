@@ -1,0 +1,3 @@
+<template>
+    CONFIRM EMAIL
+</template>

@@ -1,0 +1,17 @@
+{
+    "webshopManager": {
+        "en": "Webshop Manager",
+        "fr": "Gestionnaire de boutique en ligne",
+        "nl": "Webshop Manager"
+    },
+    "unitTypes": {
+        "en": "Unit Types",
+        "fr": "Types d'unités",
+        "nl": "Eenheidstypen"
+    },
+    "unitTypesDescription": {
+        "en": "Manage the different unit types that can be used for prices from articles in the webshop.",
+        "fr": "Gérez les différents types d'unités qui peuvent être utilisés pour les prix des articles dans la boutique en ligne.",
+        "nl": "Beheer de verschillende eenheidstypen die kunnen worden gebruikt voor prijzen van artikelen in de webshop."
+    }
+}
