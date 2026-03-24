@@ -1,9 +1,10 @@
 <template>
     <Autocomplete v-model="item" :search="search" :max-results="maxResults" :id-selector="idSelector"
         :display-item-formatter="displayItemFormatter" :placeholder="placeholder" ref="autoEl">
-        <template #default="{ item, q }">
+        <template #default="{ item }">
             <div class="row">
                 <div class="col">{{ item.$title }}</div>
+                <div v-if="item?.unitType" class="col d-none d-md-block text-muted">{{ item.unitType?.$title }}</div>
             </div>
         </template>
     </Autocomplete>

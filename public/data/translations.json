@@ -324,6 +324,11 @@
         "nl": "Nieuw venster",
         "fr": "Nouv. fenêtre"
     },
+    "price": {
+        "en": "Price",
+        "nl": "Prijs",
+        "fr": "Prix"
+    },
     "priceExcl": {
         "en": "Price (excl.)",
         "nl": "Prijs (excl.)",

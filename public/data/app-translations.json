@@ -1,8 +1,23 @@
 {
-    "webshopManager": {
-        "en": "Webshop Manager",
-        "fr": "Gestionnaire de boutique en ligne",
-        "nl": "Webshop Manager"
+    "article": {
+        "en": "Article",
+        "fr": "Article",
+        "nl": "Artikel"
+    },
+    "articles": {
+        "en": "Articles",
+        "fr": "Articles",
+        "nl": "Artikelen"
+    },
+    "articlesDescription": {
+        "en": "Manage the articles that are available in the webshop.",
+        "fr": "Gérez les articles disponibles dans la boutique en ligne.",
+        "nl": "Beheer de artikelen die beschikbaar zijn in de webshop."
+    },
+    "unitType": {
+        "en": "Unit Type",
+        "fr": "Type d'unité",
+        "nl": "Eenheidstype"
     },
     "unitTypes": {
         "en": "Unit Types",
@@ -13,5 +28,10 @@
         "en": "Manage the different unit types that can be used for prices from articles in the webshop.",
         "fr": "Gérez les différents types d'unités qui peuvent être utilisés pour les prix des articles dans la boutique en ligne.",
         "nl": "Beheer de verschillende eenheidstypen die kunnen worden gebruikt voor prijzen van artikelen in de webshop."
+    },
+    "webshopManager": {
+        "en": "Webshop Manager",
+        "fr": "Gestionnaire de boutique en ligne",
+        "nl": "Webshop Manager"
     }
 }

@@ -3,9 +3,10 @@ import type { RouteRecordRaw } from "vue-router"
 
 import { plugin as countryPlugin } from "./countries"
 import { plugin as unitTypePlugin } from "./unit-types"
+import { plugin as articlePlugin } from "./articles"
 
 // order is important -> cf HomeView
-export const plugins = [countryPlugin, unitTypePlugin]
+export const plugins = [countryPlugin, unitTypePlugin, articlePlugin]
 
 export default {
     install(app: App<Element>, { routes }: { routes: Array<RouteRecordRaw> }) {
@@ -15,4 +16,4 @@ export default {
     },
 }
 
-export { countryPlugin, unitTypePlugin }
+export { countryPlugin, unitTypePlugin, articlePlugin }

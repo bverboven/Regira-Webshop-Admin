@@ -12,7 +12,7 @@
     "title": {
         "en": "Regira Webshop Manager",
         "fr": "Regira Gestionnaire de boutique en ligne",
-        "nl": "Regira Webshopbeheerder"
+        "nl": "Regira Webshop beheer"
     },
     "cultures": {
         "en-US": "en",
@@ -20,13 +20,16 @@
         "nl-BE": "nl"
     },
     "entities": [
-        "countries"
+        "countries",
+        "articles"
     ],
     "dashboard": [
-        "unit-types"
+        "unit-types",
+        "articles"
     ],
     "navbar": [
-        "unit-types"
+        "unit-types",
+        "articles"
     ],
     "_entities": [
         "articles",
