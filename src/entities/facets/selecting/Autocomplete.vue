@@ -42,11 +42,12 @@ const item = computed({
     },
 })
 
+
 // expose refs
 const autoEl = ref<any>(null)
 watch(item, () => {
     if (item.value == null) {
-        autoEl.value?.resetQ()
+        autoEl.value.resetQ()
     }
 })
 

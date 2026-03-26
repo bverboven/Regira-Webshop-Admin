@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, type Ref } from "vue"
+import { computed, onMounted, type Ref } from "vue"
 import Entity from "../data/Entity"
 import useEntityStore from "../data/store"
 import FormModalButton from "../details/FormModalButton.vue"
@@ -56,17 +56,11 @@ const item = computed<Entity | undefined>({
         emit("update:idValue", value?.id)
     },
 })
-const autoEl = ref<any>(null)
 
 function handleSelect(selected?: Entity) {
     if (item.value?.id != selected?.id) {
         item.value = selected // emit
         emit("select", selected)
-    }
-
-    if (selected == null) {
-        // empty q in autocomplete
-        autoEl.value.resetQ()
     }
 }
 

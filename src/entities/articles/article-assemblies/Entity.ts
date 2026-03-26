@@ -1,18 +1,16 @@
 import type Article from "../data/Entity"
 
-export class ArticleComponent {
+export class ArticleAssembly {
     id: number = 0
     assemblyId: number
     componentId: number
-    quantity: number
+    quantity: number = 1
     isOmittable: boolean
 
     assembly?: Article
     component?: Article
-
-    _deleted: boolean = false
 }
 
-export const Entity = ArticleComponent
+export const Entity = ArticleAssembly
 
-export default ArticleComponent
+export default ArticleAssembly

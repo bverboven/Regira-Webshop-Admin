@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue"
+import { ref, computed, watch } from "vue"
 import { Autocomplete } from "@/regira_modules/vue/ui"
 import { get } from "@/regira_modules/vue/ioc"
 import type { IEntityService } from "@/regira_modules/vue/entities"
@@ -45,8 +45,10 @@ const item = computed({
 
 // expose refs
 const autoEl = ref<any>(null)
-defineExpose({
-    resetQ: () => autoEl.value.resetQ()
+watch(item, () => {
+    if (item.value == null) {
+        autoEl.value?.resetQ()
+    }
 })
 
 const entityService = get<IEntityService<Entity>>(Entity.name)!

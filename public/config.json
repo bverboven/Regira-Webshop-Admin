@@ -21,15 +21,18 @@
     },
     "entities": [
         "countries",
-        "articles"
+        "articles",
+        "facets"
     ],
     "dashboard": [
         "unit-types",
-        "articles"
+        "articles",
+        "facets"
     ],
     "navbar": [
         "unit-types",
-        "articles"
+        "articles",
+        "facets"
     ],
     "_entities": [
         "articles",
