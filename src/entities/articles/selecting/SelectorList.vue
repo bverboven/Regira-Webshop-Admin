@@ -6,7 +6,10 @@
                 <FormModalButton v-else disabled class="border-0" />
             </div>
             <div class="col fw-bold">{{ $t("name") }}</div>
-            <div class="col-3 d-none d-md-block fw-bold">{{ $t("unitType") }}</div>
+            <div class="col-4 col-md-2 col-xl-1 fw-bold">
+                {{ $t("price") }}
+            </div>
+            <div class="col-4 col-lg-2 d-none d-md-block fw-bold">{{ $t("unitType") }}</div>
         </div>
 
         <template v-for="(item, i) in items" :key="item.$id">
@@ -16,11 +19,13 @@
                         @click="handleSelect(item)" />
                 </div>
                 <div class="col text-truncate">
-                    <FormModalButton :modelValue="items[i]" class="p-1" />
                     {{ item.$title }}
                 </div>
-                <div class="col-3 d-none d-md-block text-truncate">
-                    {{ item.unitType?.$title }}
+                <div class="col-4 col-md-2 col-xl-1 text-truncate">
+                    {{ formatCurrency(item.price, $culture) }}
+                </div>
+                <div class="col-4 col-lg-2 d-none d-md-block text-truncate">
+                    <UnitTypeButton :model-value="item.unitType" />{{ getUnitType(item.unitType)?.$title }}
                 </div>
             </div>
         </template>
@@ -30,6 +35,8 @@
 <script setup lang="ts">
 import { computed } from "vue"
 import { type OverviewEmits } from "@/regira_modules/vue/entities"
+import { formatCurrency } from "@/regira_modules/vue/formatters"
+import { useEntityStore as useUnitTypeStore, FormModalButton as UnitTypeButton } from "@/entities/unit-types";
 import config from "../config/config"
 import type Entity from "../data/Entity"
 import useEntityStore from "../data/store"
@@ -57,4 +64,6 @@ const items = computed<Array<Entity>>({
 function handleSelect(item?: Entity) {
     emit("select", item?.$id !== props.selected?.$id ? item : undefined)
 }
+
+const { fromPool: getUnitType } = useUnitTypeStore()
 </script>

@@ -15,7 +15,7 @@
         <div class="col text-truncate">
             {{ item.$title }}
         </div>
-        <div class="col-4 col-md-2 col-lg-1 text-truncate">
+        <div class="col-4 col-md-2 col-xl-1 text-truncate">
             {{ formatCurrency(item.price, $culture) }}
         </div>
         <div class="col-2 col-lg-1 d-none d-md-block text-truncate">
@@ -30,7 +30,7 @@
 
 <script setup lang="ts">
 import { ModalType, ConfirmButton } from "@/regira_modules/vue/ui"
-import { formatCurrency } from "@/regira_modules/vue/formatters";
+import { formatCurrency } from "@/regira_modules/vue/formatters"
 import { type SaveResult } from "@/regira_modules/vue/entities"
 import { useEntityStore as useUnitTypeStore, FormModalButton as UnitTypeButton } from "@/entities/unit-types";
 import config from "../config/config";
