@@ -44,6 +44,11 @@
         "fr": "Facette",
         "nl": "Facet"
     },
+    "childEntities": {
+        "en": "Child Facets",
+        "fr": "Facettes enfants",
+        "nl": "Onderfacetten"
+    },
     "facetsDescription": {
         "en": "Manage the facets that are available for articles in the webshop.",
         "fr": "Gérez les facettes disponibles pour les articles dans la boutique en ligne.",

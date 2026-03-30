@@ -17,8 +17,8 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col">
+        <TabContainer :tabs="tabs" :active="initialTab" :use-route-nav="!isPopup">
+            <template #form>
                 <FormSection :title="$t(config.detailsTitle || '')" :readonly="readonly">
                     <div class="row">
                         <div class="col mb-2">
@@ -48,8 +48,12 @@
                         </div>
                     </div>
                 </FormSection>
-            </div>
-        </div>
+            </template>
+
+            <template #childEntities>
+                <FacetChildrenOverview v-model="item.childEntities" :facet="item" />
+            </template>
+        </TabContainer>
 
         <Debug :modelValue="{
             item,
@@ -58,10 +62,13 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from "vue"
 import type { RouteRecordRaw } from "vue-router"
-import { Feedback } from "@/regira_modules/vue/ui"
+import { useLang } from "@/regira_modules/vue/lang"
+import { Feedback, TabContainer, Tab } from "@/regira_modules/vue/ui"
 import { FormButtonsRow } from "@/components/input"
 import { useForm, type FormEmits, formDefaults } from "@/regira_modules/vue/entities"
+import FacetChildrenOverview from "../facet-children/Overview.vue"
 import config from "../config/config"
 import Entity from "../data/Entity"
 import useEntityStore from "../data/store"
@@ -82,4 +89,13 @@ const props = withDefaults(
 const { service: entityService } = useEntityStore()
 
 const { item, feedback, handleCancel, handleSubmit, handleRemove, handleRestore } = useForm<Entity>({ entityService, props, emit })
+
+// Tabs
+const { translate } = useLang()
+const tabs = computed(() =>
+    [
+        Tab.create("form", { icon: "form", title: translate("form"), isDefault: true }),
+        Tab.create("childEntities", { icon: "component", title: translate("childEntities") }),
+    ].filter(tab => tab)
+)
 </script>
