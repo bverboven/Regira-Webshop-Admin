@@ -2,12 +2,10 @@
     <form @submit.prevent="handleSubmit" :modelValue="item">
         <div class="row form-buttons">
             <div class="col col-md-auto order-1">
-                <FormButtonsRow :item="item" :readonly="readonly" :feedback="feedback" :show-delete="item?.id > 0"
-                    @cancel="handleCancel" @remove="handleRemove" @restore="handleRestore" />
+                <FormButtonsRow :item="item" :readonly="readonly" :feedback="feedback" :show-delete="item?.id > 0" @cancel="handleCancel" @remove="handleRemove" @restore="handleRestore" />
             </div>
             <div class="col-auto order-2 order-md-3">
-                <RouterLink v-if="isPopup" :to="{ name: `${Entity.name}Details`, params: { id: item.$id } }"
-                    class="btn btn-default py-1" target="_blank" :title="$t('popOut')">
+                <RouterLink v-if="isPopup" :to="{ name: `${Entity.name}Details`, params: { id: item.$id } }" class="btn btn-default py-1" target="_blank" :title="$t('popOut')">
                     <Icon name="popOut" />
                 </RouterLink>
                 <RouterLink v-else-if="overviewUrl" :to="overviewUrl" class="btn btn-info py-1">
@@ -23,7 +21,7 @@
             <div class="col">
                 <FormSection :title="$t(config.detailsTitle || '')" :readonly="readonly">
                     <div class="row">
-                        <div class="col-md mb-2">
+                        <div class="col mb-2">
                             <div class="input-group">
                                 <div class="input-group-text">
                                     <Icon name="code" />
@@ -32,7 +30,9 @@
                             </div>
                             <FormLabel :label="$t('code')" />
                         </div>
-                        <div class="col-md mb-2">
+                    </div>
+                    <div class="row">
+                        <div class="col mb-2">
                             <div class="input-group">
                                 <div class="input-group-text">
                                     <Icon name="title" />
