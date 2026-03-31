@@ -11,7 +11,7 @@ const config: IConfig = {
 
     routePrefix: "articles",
     baseQueryParams: {
-        includes: ["Price"],
+        includes: ["Price", "Facets"],
     },
     initialQuery: {},
 

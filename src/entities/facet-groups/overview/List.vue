@@ -7,7 +7,7 @@
             </div>
             <div class="col-2 col-lg-1 fw-bold">{{ $t("code") }}</div>
             <div class="col fw-bold">{{ $t("name") }}</div>
-            <div v-if="!readonly" class="col-auto d-none d-md-block fw-bold">
+            <div class="col-auto fw-bold">
                 <Icon name="delete" class="text-muted m-1" />
             </div>
         </div>

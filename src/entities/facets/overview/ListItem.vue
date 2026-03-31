@@ -15,10 +15,13 @@
         <div class="col-2 col-lg-1 text-truncate">
             {{ item.code }}
         </div>
-        <div class="col text-truncate">
+        <div class="col col-md-4 text-truncate">
             {{ item.$title }}
         </div>
-        <div v-if="!readonly" class="col-auto d-none d-md-block">
+        <div class="col d-none d-md-block text-truncate">
+            {{item.facetGroups?.map(fg => fg.facetGroup?.title).join(", ")}}
+        </div>
+        <div class="col-auto">
             <ConfirmButton icon="delete" class="m-0 p-1" :modal-type="ModalType.danger"
                 @confirm="$emit('request-remove', item)">{{ $t("deleteItem", { title: item?.$title }) }}</ConfirmButton>
         </div>

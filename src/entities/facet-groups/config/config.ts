@@ -7,7 +7,7 @@ const config: IConfig = {
     id: Entity.name,
     key: "FacetGroup",
     requires: [],
-    isComplex: false,
+    isComplex: true,
 
     routePrefix: "facet-groups",
     baseQueryParams: {
@@ -18,7 +18,7 @@ const config: IConfig = {
     overviewTitle: "facetGroups",
     detailsTitle: "facetGroup",
     description: "facetGroup.description",
-    icon: "bi bi-tags",
+    icon: "bi bi-collection",
 
     defaultPageSize: 10,
 

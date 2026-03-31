@@ -54,7 +54,7 @@
                     </div>
                     <div class="col-xl col-lg-4 mb-2">
                         <FormSection :title="$t('facets')">
-                            <FacetOverview v-model="item.facets" :article="item" />
+                            <InputSelectorInline v-model="item.facets" :article="item" />
                         </FormSection>
                     </div>
                 </div>
@@ -71,7 +71,9 @@
             <template #assemblies>
                 <AssemblyOverview :article="item" />
             </template>
+
         </TabContainer>
+
         <Debug :modelValue="{
             item,
         }" />
@@ -88,7 +90,7 @@ import { useForm, type FormEmits, formDefaults } from "@/regira_modules/vue/enti
 import { InputSelector as UnitTypeInputSelector } from "@/entities/unit-types"
 import AssemblyOverview from "@/entities/articles/article-assemblies/Overview.vue"
 import ComponentOverview from "@/entities/articles/article-components/Overview.vue"
-import FacetOverview from "@/entities/articles/article-facets/Overview.vue"
+import { InputSelectorInline } from "@/entities/articles/article-facets/"
 import config from "../config/config"
 import Entity from "../data/Entity"
 import useEntityStore from "../data/store"

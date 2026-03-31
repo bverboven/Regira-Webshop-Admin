@@ -1,4 +1,6 @@
 {
     "assembly": "bi bi-box-seam",
-    "component": "bi bi-boxes"
+    "component": "bi bi-boxes",
+    "facet": "bi bi-tag",
+    "facet-group": "bi bi-collection"
 }

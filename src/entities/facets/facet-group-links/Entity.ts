@@ -2,7 +2,7 @@ import { EntityBase } from "@/regira_modules/vue/entities"
 import type Facet from "@/entities/facets/data/Entity"
 import type FacetGroup from "@/entities/facet-groups/data/Entity"
 
-export class FacetFacetGroup extends EntityBase {
+export class FacetGroupLink extends EntityBase {
     id: number = 0
     facetId: number
     facetGroupId: number
@@ -19,11 +19,11 @@ export class FacetFacetGroup extends EntityBase {
         return this.facetGroup?.title
     }
 
-    static create(values?: object): FacetFacetGroup {
-        return Object.assign(new FacetFacetGroup(), values || {})
+    static create(values?: object): FacetGroupLink {
+        return Object.assign(new FacetGroupLink(), values || {})
     }
 }
 
-export const Entity = FacetFacetGroup
+export const Entity = FacetGroupLink
 
-export default FacetFacetGroup
+export default FacetGroupLink

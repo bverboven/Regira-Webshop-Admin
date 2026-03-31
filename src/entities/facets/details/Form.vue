@@ -44,21 +44,26 @@
                             <FormLabel :label="$t('name')" />
                         </div>
                     </div>
+                </FormSection>
+
+                <FormSection :title="$t('facet.facetGroups')">
+                    <FacetGroupsInputSelectorInline v-model="item.facetGroups" :facet="item" />
+                </FormSection>
+
+                <FormSection :title="$t('facet.parentEntities')">
+                    <InputSelectorInlineParent v-model="item.parentEntities" :facet="item" />
+                </FormSection>
+
+                <FormSection :title="$t('facet.childEntities')">
+                    <InputSelectorInlineChild v-model="item.childEntities" :facet="item" />
+                </FormSection>
+
+                <FormSection :title="$t('notes')">
                     <div class="row">
                         <div class="col mb-2">
                             <DescriptionInput v-model="item.description" :label="$t('notes')" :readonly="readonly" />
                         </div>
                     </div>
-                </FormSection>
-            </template>
-
-            <template #related>
-                <RelatedOverview v-model="item" />
-            </template>
-
-            <template #facetGroups>
-                <FormSection :title="$t('facet.facetGroups')">
-                    <FacetGroupsOverview v-model="item.facetGroups" :facet="item" />
                 </FormSection>
             </template>
         </TabContainer>
@@ -76,8 +81,8 @@ import { useLang } from "@/regira_modules/vue/lang"
 import { Feedback, TabContainer, Tab } from "@/regira_modules/vue/ui"
 import { useForm, type FormEmits, formDefaults } from "@/regira_modules/vue/entities"
 import { FormButtonsRow } from "@/components/input"
-import { Overview as RelatedOverview } from "../facet-related-facets"
-import { Overview as FacetGroupsOverview } from "../facet-facet-groups"
+import { InputSelectorInlineParent, InputSelectorInlineChild } from "../facet-related-facets"
+import { InputSelectorInline as FacetGroupsInputSelectorInline } from "../facet-group-links"
 import config from "../config/config"
 import Entity from "../data/Entity"
 import useEntityStore from "../data/store"
@@ -104,8 +109,6 @@ const { translate } = useLang()
 const tabs = computed(() =>
     [
         Tab.create("form", { icon: "form", title: translate("form"), isDefault: true }),
-        Tab.create("related", { icon: "component", title: translate("facet.relatedEntities") }),
-        Tab.create("facetGroups", { icon: "group", title: translate("facet.facetGroups") }),
     ].filter(tab => tab)
 )
 </script>

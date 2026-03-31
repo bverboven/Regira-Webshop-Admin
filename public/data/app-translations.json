@@ -69,6 +69,21 @@
         "fr": "Facettes liées",
         "nl": "Gerelateerde facetten"
     },
+    "facetGroup": {
+        "en": "Facet Group",
+        "fr": "Groupe de facettes",
+        "nl": "Facetgroep"
+    },
+    "facetGroup.description": {
+        "en": "Manage the facet groups that are available for articles in the webshop.",
+        "fr": "Gérez les groupes de facettes disponibles pour les articles dans la boutique en ligne.",
+        "nl": "Beheer de facetgroepen die beschikbaar zijn voor artikelen in de webshop."
+    },
+    "facetGroups": {
+        "en": "Facet Groups",
+        "fr": "Groupes de facettes",
+        "nl": "Facetgroepen"
+    },
     "facets": {
         "en": "Facets",
         "fr": "Facettes",

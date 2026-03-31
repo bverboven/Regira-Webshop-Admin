@@ -1,6 +1,6 @@
 <template>
     <section class="selector-search">
-        <div class="row">
+        <div class="row mt-2">
             <div class="col col-md-auto order-1">
                 <!-- Filter -->
                 <Filter v-model="searchObject" :result-count="itemsCount" @filter="searchHandler(true)"

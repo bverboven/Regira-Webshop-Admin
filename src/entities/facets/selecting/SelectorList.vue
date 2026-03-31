@@ -2,11 +2,11 @@
     <div class="entity-list">
         <div class="row pb-2 border-bottom border-bottom-1">
             <div class="col-auto fw-bold">
-                <Icon v-if="config.isComplex" name="edit" class="m-1" />
-                <FormModalButton v-else disabled class="border-0" />
+                <IconButton icon="select" class="btn-default py-0 px-1 border-0" disabled />
             </div>
-            <div class="col-2 fw-bold">{{ $t("code") }}</div>
-            <div class="col fw-bold">{{ $t("name") }}</div>
+            <div class="col-2 col-lg-1 fw-bold">{{ $t("code") }}</div>
+            <div class="col col-md-4 fw-bold">{{ $t("name") }}</div>
+            <div class="col d-none d-md-block fw-bold">{{ $t("facetGroups") }}</div>
         </div>
 
         <template v-for="(item, i) in items" :key="item.$id">
@@ -15,12 +15,14 @@
                     <IconButton :icon="isSelected(item) ? 'selected' : 'select'" class="btn-default py-0 px-1"
                         @click="handleSelect(item)" />
                 </div>
-                <div class="col-2 text-truncate">
+                <div class="col-2 col-lg-1 text-truncate">
                     {{ item.code }}
                 </div>
-                <div class="col text-truncate">
-                    <FormModalButton :modelValue="items[i]" class="p-1" />
+                <div class="col col-md-4 text-truncate">
                     {{ item.$title }}
+                </div>
+                <div class="col d-none d-md-block text-truncate">
+                    {{item.facetGroups?.map(fg => fg.facetGroup?.title).join(", ")}}
                 </div>
             </div>
         </template>
@@ -30,10 +32,8 @@
 <script setup lang="ts">
 import { computed } from "vue"
 import type { OverviewEmits } from "@/regira_modules/vue/entities"
-import config from "../config/config"
 import type Entity from "../data/Entity"
 import useEntityStore from "../data/store"
-import FormModalButton from "../details/FormModalButton.vue"
 
 interface Emits extends /* @vue-ignore */ OverviewEmits<Entity> { }
 const emit = defineEmits<Emits & {

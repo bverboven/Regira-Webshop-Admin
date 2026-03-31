@@ -7,6 +7,12 @@ export class EntityService extends EntityServiceBase<Entity> {
         super(axios, config)
     }
 
+    protected override prepareItem(item: Entity): Entity {
+        item.childEntities = item.childEntities?.filter(x => !x._deleted) || []
+        item.parentEntities = item.parentEntities?.filter(x => !x._deleted) || []
+        return item
+    }
+
     override toEntity(item: object): Entity {
         return item instanceof Entity ? item : Object.assign(this.createInstance(Entity as new () => Entity), item || {})
     }

@@ -11,7 +11,7 @@ const config: IConfig = {
 
     routePrefix: "facets",
     baseQueryParams: {
-        includes: [],
+        includes: ["FacetGroups"],
     },
     initialQuery: {},
 

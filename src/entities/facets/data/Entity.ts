@@ -1,6 +1,6 @@
 import { EntityBase } from "@/regira_modules/vue/entities"
 import type FacetChild from "../facet-related-facets/FacetChild"
-import type FacetFacetGroup from "../facet-facet-groups/Entity"
+import type FacetFacetGroup from "../facet-group-links/Entity"
 
 export class Facet extends EntityBase {
     id: number = 0
