@@ -22,17 +22,20 @@
     "entities": [
         "countries",
         "articles",
-        "facets"
+        "facets",
+        "facet-groups"
     ],
     "dashboard": [
         "unit-types",
         "articles",
-        "facets"
+        "facets",
+        "facet-groups"
     ],
     "navbar": [
         "unit-types",
         "articles",
-        "facets"
+        "facets",
+        "facet-groups"
     ],
     "_entities": [
         "articles",
