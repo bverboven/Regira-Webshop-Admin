@@ -32,25 +32,7 @@
         "facet-groups"
     ],
     "navbar": [
-        "unit-types",
         "articles",
-        "facets",
-        "facet-groups"
-    ],
-    "_entities": [
-        "articles",
-        "parties",
-        "orders"
-    ],
-    "_dashboard": [
-        "articles",
-        "parties",
-        "orders",
-        "unit-types"
-    ],
-    "_navbar": [
-        "articles",
-        "parties",
-        "orders"
+        "facets"
     ]
 }

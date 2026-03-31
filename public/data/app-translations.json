@@ -59,6 +59,11 @@
         "fr": "Facettes parentes",
         "nl": "Bovenliggende facetten"
     },
+    "facet.facetGroups": {
+        "en": "Facet Groups",
+        "fr": "Groupes de facettes",
+        "nl": "Facetgroepen"
+    },
     "facet.relatedEntities": {
         "en": "Related Facets",
         "fr": "Facettes liées",

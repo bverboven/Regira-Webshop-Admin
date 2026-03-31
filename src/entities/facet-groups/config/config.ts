@@ -7,7 +7,7 @@ const config: IConfig = {
     id: Entity.name,
     key: "FacetGroup",
     requires: [],
-    isComplex: true,
+    isComplex: false,
 
     routePrefix: "facet-groups",
     baseQueryParams: {
