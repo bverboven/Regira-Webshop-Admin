@@ -18,7 +18,7 @@ const config: IConfig = {
     overviewTitle: "facets",
     detailsTitle: "facet",
     description: "facet.description",
-    icon: "bi bi-tag",
+    icon: "bi bi-tags",
 
     defaultPageSize: 10,
 

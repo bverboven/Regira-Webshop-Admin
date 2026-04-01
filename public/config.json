@@ -19,20 +19,53 @@
         "fr-BE": "fr",
         "nl-BE": "nl"
     },
-    "entities": [
-        "countries",
-        "articles",
-        "facets",
-        "facet-groups"
-    ],
-    "dashboard": [
-        "unit-types",
-        "articles",
-        "facets",
-        "facet-groups"
-    ],
-    "navbar": [
-        "articles",
-        "facets"
-    ]
+    "navigation": {
+        "groups": [
+            {
+                "id": "Catalog",
+                "title": "Catalog",
+                "shortTitle": "Catalog",
+                "icon": "Catalog"
+            },
+            {
+                "id": "Taxonomy",
+                "title": "Taxonomy",
+                "shortTitle": "Taxonomy",
+                "icon": "Taxonomy"
+            }
+        ],
+        "entities": [
+            "Country",
+            "Article",
+            "Facet",
+            "FacetGroup",
+            "UnitType"
+        ],
+        "dashboard": [
+            [
+                "Catalog",
+                [
+                    "Article",
+                    "UnitType"
+                ]
+            ],
+            [
+                "Taxonomy",
+                [
+                    "Facet",
+                    "FacetGroup"
+                ]
+            ]
+        ],
+        "navbar": [
+            "Article",
+            [
+                "Taxonomy",
+                [
+                    "Facet",
+                    "FacetGroup"
+                ]
+            ]
+        ]
+    }
 }
