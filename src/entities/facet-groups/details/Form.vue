@@ -52,7 +52,7 @@
                 </FormSection>
             </template>
 
-            <template #related>
+            <template #facets>
                 <RelatedOverview v-model="item" />
             </template>
         </TabContainer>
@@ -97,7 +97,7 @@ const { translate } = useLang()
 const tabs = computed(() =>
     [
         Tab.create("form", { icon: "form", title: translate("form"), isDefault: true }),
-        Tab.create("related", { icon: "component", title: translate("facetGroup.relatedEntities") }),
+        Tab.create("facets", { icon: "component", title: translate("facetGroup.facets") }),
     ].filter(tab => tab)
 )
 </script>

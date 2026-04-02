@@ -1,7 +1,9 @@
 <template>
     <FormSection :collapsed="isCollapsed">
         <template #title>
-            <h3 class="p-2 mb-2" @click="isCollapsed = !isCollapsed">{{ node.value.title }}</h3>
+            <h3 class="p-2 mb-2" @click="isCollapsed = !isCollapsed">
+                <Icon :name="node.value.icon" class="me-1" /> {{ node.value.title }}
+            </h3>
         </template>
         <div class="row">
             <template v-for="childNode in node.children" :key="childNode.value.id">

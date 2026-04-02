@@ -1,112 +1,137 @@
 {
-    "article.allowAdditions": {
-        "en": "Allow additions",
-        "fr": "Autoriser les ajouts",
-        "nl": "Toevoegingen toestaan"
-    },
-    "article": {
-        "en": "Article",
-        "fr": "Article",
-        "nl": "Artikel"
-    },
-    "articles": {
-        "en": "Articles",
-        "fr": "Articles",
-        "nl": "Artikelen"
-    },
-    "article.description": {
-        "en": "Manage the articles that are available in the webshop.",
-        "fr": "Gérez les articles disponibles dans la boutique en ligne.",
-        "nl": "Beheer de artikelen die beschikbaar zijn in de webshop."
-    },
-    "assembly": {
-        "en": "Assembly",
-        "fr": "Assemblage",
-        "nl": "Samenstelling"
-    },
-    "assemblies": {
-        "en": "Assemblies",
-        "fr": "Assemblages",
-        "nl": "Samenstellingen"
-    },
-    "component": {
-        "en": "Component",
-        "fr": "Composant",
-        "nl": "Component"
-    },
-    "components": {
-        "en": "Components",
-        "fr": "Composants",
-        "nl": "Componenten"
-    },
-    "facet": {
-        "en": "Facet",
-        "fr": "Facette",
-        "nl": "Facet"
-    },
-    "facet.childEntities": {
-        "en": "Child Facets",
-        "fr": "Facettes enfants",
-        "nl": "Onderliggende facetten"
-    },
-    "facet.description": {
-        "en": "Manage the facets that are available for articles in the webshop.",
-        "fr": "Gérez les facettes disponibles pour les articles dans la boutique en ligne.",
-        "nl": "Beheer de facetten die beschikbaar zijn voor artikelen in de webshop."
-    },
-    "facet.parentEntities": {
-        "en": "Parent Facets",
-        "fr": "Facettes parentes",
-        "nl": "Bovenliggende facetten"
-    },
-    "facet.facetGroups": {
-        "en": "Facet Groups",
-        "fr": "Groupes de facettes",
-        "nl": "Facetgroepen"
-    },
-    "facet.relatedEntities": {
-        "en": "Related Facets",
-        "fr": "Facettes liées",
-        "nl": "Gerelateerde facetten"
-    },
-    "facetGroup": {
-        "en": "Facet Group",
-        "fr": "Groupe de facettes",
-        "nl": "Facetgroep"
-    },
-    "facetGroup.description": {
-        "en": "Manage the facet groups that are available for articles in the webshop.",
-        "fr": "Gérez les groupes de facettes disponibles pour les articles dans la boutique en ligne.",
-        "nl": "Beheer de facetgroepen die beschikbaar zijn voor artikelen in de webshop."
-    },
-    "facetGroups": {
-        "en": "Facet Groups",
-        "fr": "Groupes de facettes",
-        "nl": "Facetgroepen"
-    },
-    "facets": {
-        "en": "Facets",
-        "fr": "Facettes",
-        "nl": "Facetten"
-    },
-    "unitType": {
-        "en": "Unit Type",
-        "fr": "Type d'unité",
-        "nl": "Eenheidstype"
-    },
-    "unitTypes": {
-        "en": "Unit Types",
-        "fr": "Types d'unités",
-        "nl": "Eenheidstypen"
-    },
-    "unitType.description": {
-        "en": "Manage the different unit types that can be used for prices from articles in the webshop.",
-        "fr": "Gérez les différents types d'unités qui peuvent être utilisés pour les prix des articles dans la boutique en ligne.",
-        "nl": "Beheer de verschillende eenheidstypen die kunnen worden gebruikt voor prijzen van artikelen in de webshop."
-    },
-    "webshopManager": {
-        "en": "Webshop Manager",
-        "fr": "Gestionnaire de boutique en ligne",
-        "nl": "Webshop Manager"
-    }
+  "article.allowAdditions": {
+    "en": "Allow additions",
+    "fr": "Autoriser les ajouts",
+    "nl": "Toevoegingen toestaan"
+  },
+  "article": {
+    "en": "Article",
+    "fr": "Article",
+    "nl": "Artikel"
+  },
+  "articles": {
+    "en": "Articles",
+    "fr": "Articles",
+    "nl": "Artikelen"
+  },
+  "article.description": {
+    "en": "Manage the articles that are available in the webshop.",
+    "fr": "Gérez les articles disponibles dans la boutique en ligne.",
+    "nl": "Beheer de artikelen die beschikbaar zijn in de webshop."
+  },
+  "assembly": {
+    "en": "Assembly",
+    "fr": "Assemblage",
+    "nl": "Samenstelling"
+  },
+  "assemblies": {
+    "en": "Assemblies",
+    "fr": "Assemblages",
+    "nl": "Samenstellingen"
+  },
+  "component": {
+    "en": "Component",
+    "fr": "Composant",
+    "nl": "Component"
+  },
+  "components": {
+    "en": "Components",
+    "fr": "Composants",
+    "nl": "Componenten"
+  },
+  "facet": {
+    "en": "Facet",
+    "fr": "Facette",
+    "nl": "Facet"
+  },
+  "facet.childEntities": {
+    "en": "Child Facets",
+    "fr": "Facettes enfants",
+    "nl": "Onderliggende facetten"
+  },
+  "facet.description": {
+    "en": "Manage the facets that are available for articles in the webshop.",
+    "fr": "Gérez les facettes disponibles pour les articles dans la boutique en ligne.",
+    "nl": "Beheer de facetten die beschikbaar zijn voor artikelen in de webshop."
+  },
+  "facet.parentEntities": {
+    "en": "Parent Facets",
+    "fr": "Facettes parentes",
+    "nl": "Bovenliggende facetten"
+  },
+  "facet.facetGroups": {
+    "en": "Facet Groups",
+    "fr": "Groupes de facettes",
+    "nl": "Facetgroepen"
+  },
+  "facet.relatedEntities": {
+    "en": "Related Facets",
+    "fr": "Facettes liées",
+    "nl": "Gerelateerde facetten"
+  },
+  "facetGroup": {
+    "en": "Facet Group",
+    "fr": "Groupe de facettes",
+    "nl": "Facetgroep"
+  },
+  "facetGroup.childEntities": {
+    "en": "Child Facet Groups",
+    "fr": "Groupes de facettes enfants",
+    "nl": "Onderliggende facetgroepen"
+  },
+  "facetGroup.description": {
+    "en": "Manage the facet groups that are available for articles in the webshop.",
+    "fr": "Gérez les groupes de facettes disponibles pour les articles dans la boutique en ligne.",
+    "nl": "Beheer de facetgroepen die beschikbaar zijn voor artikelen in de webshop."
+  },
+  "facetGroup.facets": {
+    "en": "Facets",
+    "fr": "Facettes",
+    "nl": "Facetten"
+  },
+  "facetGroup.parentEntities": {
+    "en": "Parent Facet Groups",
+    "fr": "Groupes de facettes parents",
+    "nl": "Bovenliggende facetgroepen"
+  },
+  "facetGroup.relatedEntities": {
+    "en": "Related Facet Groups",
+    "fr": "Groupes de facettes liés",
+    "nl": "Gerelateerde facetgroepen"
+  },
+  "facetGroups": {
+    "en": "Facet Groups",
+    "fr": "Groupes de facettes",
+    "nl": "Facetgroepen"
+  },
+  "isRoot": {
+    "en": "Top-level",
+    "fr": "Premier niveau",
+    "nl": "Top-level"
+  },
+  "facets": {
+    "en": "Facets",
+    "fr": "Facettes",
+    "nl": "Facetten"
+  },
+  "unitType": {
+    "en": "Unit Type",
+    "fr": "Type d'unité",
+    "nl": "Eenheidstype"
+  },
+  "unitTypes": {
+    "en": "Unit Types",
+    "fr": "Types d'unités",
+    "nl": "Eenheidstypen"
+  },
+  "unitType.description": {
+    "en": "Manage the different unit types that can be used for prices from articles in the webshop.",
+    "fr": "Gérez les différents types d'unités qui peuvent être utilisés pour les prix des articles dans la boutique en ligne.",
+    "nl": "Beheer de verschillende eenheidstypen die kunnen worden gebruikt voor prijzen van artikelen in de webshop."
+  },
+  "webshopManager": {
+    "en": "Webshop Manager",
+    "fr": "Gestionnaire de boutique en ligne",
+    "nl": "Webshop Manager"
+  }
 }

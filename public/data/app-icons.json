@@ -1,6 +1,6 @@
 {
-    "assembly": "bi bi-box-seam",
-    "component": "bi bi-boxes",
-    "facet": "bi bi-tag",
-    "facet-group": "bi bi-collection"
+  "assembly": "bi bi-box-seam",
+  "component": "bi bi-boxes",
+  "catalog": "bi bi-book",
+  "taxonomy": "bi bi-collection"
 }

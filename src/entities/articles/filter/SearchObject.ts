@@ -7,6 +7,8 @@ export class EntitySearchObject extends SearchObjectBase {
     componentId?: number | Array<number>
     assemblyId?: number | Array<number>
 
+    isRoot?: boolean
+
     isComponent?: boolean
     isAssembly?: boolean
 

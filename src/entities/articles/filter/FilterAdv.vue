@@ -36,6 +36,12 @@
                             <NullableCheckBox v-model="searchObject.isComponent" id="isComponent"
                                 class="form-check-input" />
                         </div>
+                        <div class="input-group-text">
+                            <label class="form-check-label" for="isRoot">
+                                <NullableCheckBox v-model="searchObject.isRoot" id="isRoot" class="form-check-input" />
+                                {{ $t('isRoot') }}
+                            </label>
+                        </div>
                     </template>
                 </InputSelector>
                 <FormLabel :label="$t('component')" />
