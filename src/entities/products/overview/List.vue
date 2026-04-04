@@ -6,6 +6,7 @@
                 <FormModalButton v-else disabled class="border-0" />
             </div>
             <div class="col fw-bold">{{ $t("name") }}</div>
+            <div class="col fw-bold">{{ $t("facets") }}</div>
             <div class="col-4 col-md-2 col-xl-1 fw-bold">{{ $t("price") }}</div>
             <div class="col-2 col-lg-1 d-none d-md-block fw-bold">{{ $t("unitType") }}</div>
             <div class="col-auto fw-bold">
