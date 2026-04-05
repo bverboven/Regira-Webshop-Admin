@@ -21,44 +21,56 @@
 
         <TabContainer :tabs="tabs" :active="initialTab" :use-route-nav="!isPopup">
             <template #form>
-                <FormSection :title="$t(config.detailsTitle || '')" :readonly="readonly">
-                    <div class="row">
-                        <div class="col-md mb-2">
-                            <div class="input-group">
-                                <div class="input-group-text">
-                                    <Icon name="title" />
-                                </div>
-                                <input v-model="item.title" maxlength="128" :readonly="readonly" class="form-control" />
-                            </div>
-                            <FormLabel :label="$t('name')" />
-                        </div>
-                        <div class="col-md mb-2">
-                            <UnitTypeInputSelector v-model="item.unitType" v-model:id-value="item.unitTypeId"
-                                :readonly="readonly" />
-                            <FormLabel :label="$t('unitType')" />
-                        </div>
-                    </div>
-                </FormSection>
 
                 <div class="row">
                     <div class="col mb-2">
-                        <FormSection :title="$t('components')">
-                            <ComponentOverview v-model="item" />
+                        <FormSection :title="$t(config.detailsTitle || '')" :readonly="readonly">
+                            <div class="row">
+                                <div class="col-lg mb-2">
+                                    <div class="input-group">
+                                        <div class="input-group-text">
+                                            <Icon name="title" />
+                                        </div>
+                                        <input v-model="item.title" maxlength="128" :readonly="readonly"
+                                            class="form-control" />
+                                    </div>
+                                    <FormLabel :label="$t('name')" />
+                                </div>
+                                <div class="col-lg mb-2">
+                                    <UnitTypeInputSelector v-model="item.unitType" v-model:id-value="item.unitTypeId"
+                                        :readonly="readonly" />
+                                    <FormLabel :label="$t('unitType')" />
+                                </div>
+                            </div>
                         </FormSection>
-                    </div>
-                    <div class="col-xl col-lg-4 mb-2">
+
                         <FormSection :title="$t('facets')">
                             <InputSelectorInline v-model="item" />
                         </FormSection>
+
+                        <FormSection :title="$t('notes')">
+                            <div class="row">
+                                <div class="col mb-2">
+                                    <DescriptionInput v-model="item.description" :label="$t('notes')"
+                                        :readonly="readonly" />
+                                </div>
+                            </div>
+                        </FormSection>
+
+                    </div>
+                    <div v-show="screen.isLarge" class="col mb-2">
+
+                        <FormSection :title="$t('components')">
+                            <ComponentOverview v-model="item" />
+                        </FormSection>
+
                     </div>
                 </div>
+            </template>
 
-                <FormSection :title="$t('notes')">
-                    <div class="row">
-                        <div class="col mb-2">
-                            <DescriptionInput v-model="item.description" :label="$t('notes')" :readonly="readonly" />
-                        </div>
-                    </div>
+            <template #components>
+                <FormSection :title="$t('components')">
+                    <ComponentOverview v-model="item" />
                 </FormSection>
             </template>
 
@@ -78,7 +90,7 @@
 import { computed } from "vue"
 import type { RouteRecordRaw } from "vue-router"
 import { useLang } from "@/regira_modules/vue/lang"
-import { Feedback, TabContainer, Tab } from "@/regira_modules/vue/ui"
+import { Feedback, TabContainer, Tab, useScreen } from "@/regira_modules/vue/ui"
 import { FormButtonsRow } from "@/components/input"
 import { useForm, type FormEmits, formDefaults } from "@/regira_modules/vue/entities"
 import { InputSelector as UnitTypeInputSelector } from "@/entities/unit-types"
@@ -103,6 +115,8 @@ const props = withDefaults(
     { ...formDefaults }
 )
 
+const { size, screen } = useScreen()
+
 const { service: entityService } = useEntityStore()
 
 const { item, feedback, handleCancel, handleSubmit, handleRemove, handleRestore } = useForm<Entity>({ entityService, props, emit })
@@ -112,6 +126,7 @@ const { translate } = useLang()
 const tabs = computed(() =>
     [
         Tab.create("form", { icon: "form", title: translate("form"), isDefault: true }),
+        !screen.isLarge ? Tab.create("components", { icon: "component", title: translate("components") }) : null,
         Tab.create("assemblies", { icon: "assembly", title: translate("assemblies") }),
     ].filter(tab => tab)
 )

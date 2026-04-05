@@ -1,5 +1,5 @@
 <template>
-    <FormSection :title="$t('components')">
+    <FormSection :title="$t('assemblies')">
         <Filter v-model="searchObject" @filter="searchHandler(true)" @change="searchHandler(true)"
             :result-count="itemsCount" />
         <LoadingContainer :is-loading="isLoading">

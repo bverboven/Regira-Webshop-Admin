@@ -17,9 +17,14 @@
 import { useFilter, type FilterEmits } from "@/regira_modules/vue/entities"
 import SearchObject from "./SearchObject"
 
-interface Emits extends /* @vue-ignore */ FilterEmits { }
+interface Emits extends /* @vue-ignore */ FilterEmits<SearchObject> { }
+const emit = defineEmits<Emits & {
+    "update:modelValue": (value: SearchObject) => true,
+    "filter": (value: SearchObject) => true,
+    "toggle-adv": () => void,
+    "close": () => void,
+}>()
 
-const emit = defineEmits<Emits>()
 const props = defineProps<{
     resultCount?: number
 }>()
