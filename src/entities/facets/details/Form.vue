@@ -46,17 +46,9 @@
                     </div>
                 </FormSection>
 
-                <FormSection :title="$t('facet.facetGroups')">
-                    <FacetGroupsInputSelectorInline v-model="item.facetGroups" :facet="item" />
-                </FormSection>
+                <FacetGroupsOverview v-model="item" :facet="item" />
 
-                <FormSection :title="$t('facet.parentEntities')">
-                    <InputSelectorInlineParent v-model="item.parentEntities" :facet="item" />
-                </FormSection>
-
-                <FormSection :title="$t('facet.childEntities')">
-                    <InputSelectorInlineChild v-model="item.childEntities" :facet="item" />
-                </FormSection>
+                <RelatedFacetsOverview v-model="item" />
 
                 <FormSection :title="$t('notes')">
                     <div class="row">
@@ -81,8 +73,8 @@ import { useLang } from "@/regira_modules/vue/lang"
 import { Feedback, TabContainer, Tab } from "@/regira_modules/vue/ui"
 import { useForm, type FormEmits, formDefaults } from "@/regira_modules/vue/entities"
 import { FormButtonsRow } from "@/components/input"
-import { InputSelectorInlineParent, InputSelectorInlineChild } from "../facet-related-facets"
-import { InputSelectorInline as FacetGroupsInputSelectorInline } from "../facet-group-links"
+import { Overview as RelatedFacetsOverview } from "../facet-related-facets"
+import { Overview as FacetGroupsOverview } from "../facet-group-links"
 import config from "../config/config"
 import Entity from "../data/Entity"
 import useEntityStore from "../data/store"

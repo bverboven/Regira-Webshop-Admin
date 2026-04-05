@@ -1,52 +1,39 @@
 <template>
-    <div>
-        <div class="row mb-2">
-            <div class="col">
-                <InputSelector v-model="newItem.facetGroup" v-model:idValue="newItem.facetGroupId" />
-            </div>
-            <div class="col-auto">
-                <button type="button" class="btn btn-success" @click="handleAdd(newItem)">
-                    <Icon name="new" />
-                </button>
-            </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <FormSection>
+                <template #title>
+                    <h3 class="p-2 mb-2">
+                        <Icon :name="FacetGroup.name" /> {{ $t('facet.parentFacetGroups') }}
+                    </h3>
+                </template>
+                <OverviewParentGroups v-model="item" :filter-defaults="{ exclude: excludedIds }" />
+            </FormSection>
         </div>
-
-        <template v-for="item in items" :key="item.id">
-            <div class="row mb-2" :class="{ 'is-deleted': item._deleted }">
-                <div class="col">
-                    <FormModalButton :modelValue="item.facetGroup" />
-                    {{ item.facetGroup?.title ?? '' }}
-                </div>
-                <div class="col-auto">
-                    <button type="button" class="btn btn-outline-danger" @click="handleRemove(item)">
-                        <Icon name="delete" />
-                    </button>
-                </div>
-            </div>
-        </template>
+        <div class="col-lg-6">
+            <FormSection>
+                <template #title>
+                    <h3 class="p-2 mb-2">
+                        <Icon :name="FacetGroup.name" /> {{ $t('facet.childFacetGroups') }}
+                    </h3>
+                </template>
+                <OverviewChildGroups v-model="item" :filter-defaults="{ exclude: excludedIds }" />
+            </FormSection>
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue"
+import { computed } from "vue"
 import type Facet from "../data/Entity"
-import FacetFacetGroup from "./Entity"
-import InputSelector from "@/entities/facet-groups/selecting/InputSelector.vue"
-import FormModalButton from "@/entities/facet-groups/details/FormModalButton.vue"
+import FacetGroup from "../../facet-groups/data/Entity"
+import OverviewParentGroups from "./InputSelectorInlineParent.vue"
+import OverviewChildGroups from "./InputSelectorInlineChild.vue"
 
-const props = defineProps<{
-    facet: Facet
-}>()
+const item = defineModel<Facet>({ required: true })
 
-const items = defineModel<FacetFacetGroup[]>({ default: () => [] })
-
-function handleRemove(item: FacetFacetGroup) {
-    item._deleted = !item._deleted
-}
-
-const newItem = ref<FacetFacetGroup>(FacetFacetGroup.create({ facetId: props.facet.id }))
-function handleAdd(item: FacetFacetGroup) {
-    items.value.push(FacetFacetGroup.create({ ...item }))
-    newItem.value = FacetFacetGroup.create({ facetId: props.facet.id })
-}
+const excludedIds = computed(() => [
+    ...item.value.facetParentGroups?.filter(x => !x._deleted).map(x => x.facetGroupId) ?? [],
+    ...item.value.facetChildGroups?.filter(x => !x._deleted).map(x => x.facetGroupId) ?? []
+])
 </script>

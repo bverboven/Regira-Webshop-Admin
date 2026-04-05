@@ -2,8 +2,7 @@
     <div class="entity-list">
         <div class="row pb-2 border-bottom border-bottom-1">
             <div class="col-auto fw-bold">
-                <Icon v-if="config.isComplex" name="edit" class="m-1" />
-                <FormModalButton v-else disabled class="border-0" />
+                <IconButton icon="select" class="btn-default py-0 px-1 border-0" disabled />
             </div>
             <div class="col-2 fw-bold">{{ $t("code") }}</div>
             <div class="col fw-bold">{{ $t("name") }}</div>
@@ -19,7 +18,7 @@
                     {{ item.code }}
                 </div>
                 <div class="col text-truncate">
-                    <FormModalButton :modelValue="items[i]" class="p-1" />
+                    <FormModalButton :modelValue="item" class="p-1" />
                     {{ item.$title }}
                 </div>
             </div>

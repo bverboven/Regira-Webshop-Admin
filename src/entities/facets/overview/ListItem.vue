@@ -19,7 +19,7 @@
             {{ item.$title }}
         </div>
         <div class="col d-none d-md-block text-truncate">
-            {{item.facetGroups?.map(fg => fg.facetGroup?.title).join(", ")}}
+            {{item.facetParentGroups?.map(fg => fg.facetGroup?.title).join(", ")}}
         </div>
         <div class="col-auto">
             <ConfirmButton icon="delete" class="m-0 p-1" :modal-type="ModalType.danger"

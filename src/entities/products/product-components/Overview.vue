@@ -45,26 +45,24 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { useEntityStore as useUnitTypeStore } from '@/entities/unit-types';
-import type Product from '../data/Entity';
+import Product from '../data/Entity';
 import InputSelector from '../selecting/InputSelector.vue';
 import ProductComponent from './Entity';
 
-const props = defineProps<{
-    assembly: Product
-}>()
-
-const items = defineModel<Array<ProductComponent>>({ default: () => [] });
+const model = defineModel<Product>({ required: true });
+const items = computed(() => model.value.components ?? []);
 
 function handleRemove(item: ProductComponent) {
     item._deleted = !item._deleted;
 }
 
-const newItem = ref<ProductComponent>(ProductComponent.create({ assemblyId: props.assembly.id }));
+const newItem = ref<ProductComponent>(ProductComponent.create({ assemblyId: model.value.id }));
 function handleAdd(item: ProductComponent) {
-    items.value.push(ProductComponent.create({ ...item }));
-    newItem.value = ProductComponent.create({ assemblyId: props.assembly.id });
+    if (!model.value.components) model.value.components = [];
+    model.value.components.push(ProductComponent.create({ ...item }));
+    newItem.value = ProductComponent.create({ assemblyId: model.value.id });
 }
 
 const { fromPool: getUnitType } = useUnitTypeStore()

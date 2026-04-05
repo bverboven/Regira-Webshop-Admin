@@ -1,5 +1,11 @@
-import FacetGroupLinkParent from "./FacetParentGroup";
-import FacetGroupLinkChild from "./FacetChildGroup";
+import FacetGroupFacet from "./FacetGroupFacet";
+import InputSelectorInlineParent from "./InputSelectorInlineParent.vue";
+import InputSelectorInlineChild from "./InputSelectorInlineChild.vue";
 import Overview from "./Overview.vue";
 
-export { FacetGroupLinkParent, FacetGroupLinkChild, Overview }
+export {
+  FacetGroupFacet,
+  InputSelectorInlineParent,
+  InputSelectorInlineChild,
+  Overview,
+};

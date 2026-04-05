@@ -40,7 +40,7 @@ const props = defineProps<{
 }>()
 
 const items = defineModel<FacetParent[]>({ default: () => [] })
-const excludedIds = computed(() => [props.facet.id, ...props.facet.parentEntities?.map(x => x.parentId) ?? [], ...props.facet.childEntities?.map(x => x.childId) ?? []])
+const excludedIds = computed(() => [props.facet.id, ...props.facet.parentFacets?.map(x => x.parentId) ?? [], ...props.facet.childFacets?.map(x => x.childId) ?? []])
 
 function handleRemove(item: FacetParent) {
     item._deleted = !item._deleted

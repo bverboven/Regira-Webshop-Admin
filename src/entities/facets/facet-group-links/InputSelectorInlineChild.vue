@@ -12,31 +12,32 @@
             </div>
         </template>
         <div class="col-auto mb-2">
-            <InputSelector @select="handleAdd" :filterDefaults="{ exclude: excludeIds }" />
+            <InputSelector @select="handleAdd" :filterDefaults="filterDefaults" />
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from "vue"
-import { type Entity as FacetGroup } from "@/entities/facet-groups"
-import type Facet from "../data/Entity"
-import FacetGroupLink from "./Entity"
+import type FacetGroup from "@/entities/facet-groups/data/Entity"
 import InputSelector from "@/entities/facet-groups/selecting/InputSelector.vue"
 import FormModalButton from "@/entities/facet-groups/details/FormModalButton.vue"
+import type Facet from "../data/Entity"
+import FacetFacetGroup from "../facet-group-links/FacetFacetGroup"
 
 const props = defineProps<{
-    facet: Facet
+    filterDefaults?: Record<string, any>
 }>()
 
-const items = defineModel<FacetGroupLink[]>({ default: () => [] })
-const excludeIds = computed(() => items.value.map(i => i.facetGroupId))
+const facet = defineModel<Facet>({ required: true })
+const items = computed(() => facet.value.facetChildGroups ?? [])
 
-function handleRemove(item: FacetGroupLink) {
-    item._deleted = !item._deleted
+function handleRemove(item: FacetFacetGroup) {
+    item._deleted = !item._deleted || props.filterDefaults?.exclude?.includes(item.facetGroupId)
 }
 
 function handleAdd(item?: FacetGroup) {
-    items.value.push(FacetGroupLink.create({ facetId: props.facet.id, facetGroupId: item?.id, facetGroup: item }))
+    facet.value.facetChildGroups ??= []
+    facet.value.facetChildGroups.push(FacetFacetGroup.create({ facetId: facet.value.id, facetGroupId: item?.id, facetGroup: item }))
 }
 </script>

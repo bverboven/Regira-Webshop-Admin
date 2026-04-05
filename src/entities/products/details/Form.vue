@@ -43,18 +43,12 @@
                 <div class="row">
                     <div class="col mb-2">
                         <FormSection :title="$t('components')">
-                            <div class="form-check form-switch">
-                                <input type="checkbox" v-model="item.allowAdditions" :disabled="readonly"
-                                    class="form-check-input" id="allowAdditions" />
-                                <label class="form-check-label" for="allowAdditions">{{ $t("product.allowAdditions")
-                                }}</label>
-                            </div>
-                            <ComponentOverview v-model="item.components" :assembly="item" />
+                            <ComponentOverview v-model="item" />
                         </FormSection>
                     </div>
                     <div class="col-xl col-lg-4 mb-2">
                         <FormSection :title="$t('facets')">
-                            <InputSelectorInline v-model="item.facets" :product="item" />
+                            <InputSelectorInline v-model="item" />
                         </FormSection>
                     </div>
                 </div>

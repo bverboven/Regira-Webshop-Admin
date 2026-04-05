@@ -39,7 +39,12 @@
     "fr": "Facette",
     "nl": "Facet"
   },
-  "facet.childEntities": {
+  "facet.childFacetGroups": {
+    "en": "Child Groups",
+    "fr": "Groupes de enfants",
+    "nl": "Onderliggende groepen"
+  },
+  "facet.childFacets": {
     "en": "Child Facets",
     "fr": "Facettes enfants",
     "nl": "Onderliggende facetten"
@@ -49,20 +54,15 @@
     "fr": "Gérez les facettes disponibles pour les produits.",
     "nl": "Beheer de facetten die beschikbaar zijn voor producten."
   },
-  "facet.parentEntities": {
+  "facet.parentFacetGroups": {
+    "en": "Parent Groups",
+    "fr": "Groupes de parents",
+    "nl": "Bovenliggende groepen"
+  },
+  "facet.parentFacets": {
     "en": "Parent Facets",
     "fr": "Facettes parentes",
     "nl": "Bovenliggende facetten"
-  },
-  "facet.facetGroups": {
-    "en": "Facet Groups",
-    "fr": "Groupes de facettes",
-    "nl": "Facetgroepen"
-  },
-  "facet.relatedEntities": {
-    "en": "Related Facets",
-    "fr": "Facettes liées",
-    "nl": "Gerelateerde facetten"
   },
   "facetGroup": {
     "en": "Facet Group",

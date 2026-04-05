@@ -19,10 +19,11 @@
                     {{ item.code }}
                 </div>
                 <div class="col col-md-4 text-truncate">
+                    <FormModalButton :modelValue="item" class="p-1" /> />
                     {{ item.$title }}
                 </div>
                 <div class="col d-none d-md-block text-truncate">
-                    {{item.facetGroups?.map(fg => fg.facetGroup?.title).join(", ")}}
+                    {{item.facetParentGroups?.map(fg => fg.facetGroup?.title).join(", ")}}
                 </div>
             </div>
         </template>
@@ -34,6 +35,7 @@ import { computed } from "vue"
 import type { OverviewEmits } from "@/regira_modules/vue/entities"
 import type Entity from "../data/Entity"
 import useEntityStore from "../data/store"
+import FormModalButton from "../details/FormModalButton.vue"
 
 interface Emits extends /* @vue-ignore */ OverviewEmits<Entity> { }
 const emit = defineEmits<Emits & {

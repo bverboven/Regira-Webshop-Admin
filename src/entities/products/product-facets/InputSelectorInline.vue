@@ -23,11 +23,8 @@ import type Product from "../data/Entity"
 import ProductFacet from "./Entity"
 import { type Entity as Facet, InputSelector, FormModalButton } from "@/entities/facets"
 
-const props = defineProps<{
-    product: Product
-}>()
-
-const items = defineModel<ProductFacet[]>({ default: () => [] })
+const model = defineModel<Product>({ required: true })
+const items = computed(() => model.value.facets ?? [])
 const excludeIds = computed(() => items.value.map(i => i.facetId))
 
 function handleRemove(item: ProductFacet) {
@@ -35,6 +32,7 @@ function handleRemove(item: ProductFacet) {
 }
 
 function handleAdd(item?: Facet) {
-    items.value.push(ProductFacet.create({ productId: props.product.id, facetId: item?.id, facet: item }))
+    if (!model.value.facets) model.value.facets = []
+    model.value.facets.push(ProductFacet.create({ productId: model.value.id, facetId: item?.id, facet: item }))
 }
 </script>

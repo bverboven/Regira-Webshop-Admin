@@ -2,13 +2,10 @@
     <div class="entity-list">
         <div class="row pb-2 border-bottom border-bottom-1">
             <div class="col-auto fw-bold">
-                <Icon v-if="config.isComplex" name="edit" class="m-1" />
-                <FormModalButton v-else disabled class="border-0" />
+                <IconButton icon="select" class="btn-default py-0 px-1 border-0" disabled />
             </div>
             <div class="col fw-bold">{{ $t("name") }}</div>
-            <div class="col-4 col-md-2 col-xl-1 fw-bold">
-                {{ $t("price") }}
-            </div>
+            <div class="col-4 col-md-2 col-xl-1 fw-bold">{{ $t("price") }}</div>
             <div class="col-4 col-lg-2 d-none d-md-block fw-bold">{{ $t("unitType") }}</div>
         </div>
 
@@ -19,6 +16,7 @@
                         @click="handleSelect(item)" />
                 </div>
                 <div class="col text-truncate">
+                    <FormModalButton :modelValue="item" class="p-1" />
                     {{ item.$title }}
                 </div>
                 <div class="col-4 col-md-2 col-xl-1 text-truncate">
