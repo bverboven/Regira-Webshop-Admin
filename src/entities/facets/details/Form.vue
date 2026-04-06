@@ -58,6 +58,10 @@
                     </div>
                 </FormSection>
             </template>
+
+            <template #products>
+                <ProductsOverview :facet="item" />
+            </template>
         </TabContainer>
 
         <Debug :modelValue="{
@@ -75,6 +79,7 @@ import { useForm, type FormEmits, formDefaults } from "@/regira_modules/vue/enti
 import { FormButtonsRow } from "@/components/input"
 import { Overview as RelatedFacetsOverview } from "../facet-related-facets"
 import { Overview as FacetGroupsOverview } from "../facet-group-links"
+import { Overview as ProductsOverview } from "../facet-products"
 import config from "../config/config"
 import Entity from "../data/Entity"
 import useEntityStore from "../data/store"
@@ -101,6 +106,7 @@ const { translate } = useLang()
 const tabs = computed(() =>
     [
         Tab.create("form", { icon: "form", title: translate("form"), isDefault: true }),
+        Tab.create("products", { icon: "product", title: translate("products") }),
     ].filter(tab => tab)
 )
 </script>
