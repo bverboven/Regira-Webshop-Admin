@@ -44,7 +44,7 @@
                         </div>
                     </template>
                 </InputSelector>
-                <FormLabel :label="$t('component')" />
+                <FormLabel :label="$t('product.component')" />
             </div>
             <!-- Assembly -->
             <div class="col mb-2">
