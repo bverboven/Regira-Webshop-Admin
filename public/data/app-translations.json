@@ -134,6 +134,11 @@
     "fr": "Produits",
     "nl": "Producten"
   },
+  "product.prices": {
+    "en": "Prices",
+    "fr": "Prix",
+    "nl": "Prijzen"
+  },
   "product.description": {
     "en": "Manage the products that are available in the PIM.",
     "fr": "Gérez les produits disponibles dans le GIP.",

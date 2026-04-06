@@ -44,6 +44,10 @@
                             <InputSelectorInline v-model="item" />
                         </FormSection>
 
+                        <FormSection :title="$t('product.prices')">
+                            <PricesOverview v-model="item" />
+                        </FormSection>
+
                         <FormSection :title="$t('notes')">
                             <div class="row">
                                 <div class="col mb-2">
@@ -92,6 +96,7 @@ import { InputSelector as UnitTypeInputSelector } from "@/entities/unit-types"
 import AssemblyOverview from "@/entities/products/product-assemblies/Overview.vue"
 import ComponentOverview from "@/entities/products/product-components/Overview.vue"
 import { InputSelectorInline } from "@/entities/products/product-facets/"
+import PricesOverview from "@/entities/products/product-prices/Overview.vue"
 import config from "../config/config"
 import Entity from "../data/Entity"
 import useEntityStore from "../data/store"
