@@ -5,7 +5,7 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbarAccountDropdown" role="button"
                     data-toggle="dropdown" aria-expanded="false" @click="handleToggleDropDown">
                     <icon :name="node.value.icon" />
-                    <span class="d-none d-md-inline d-xl-none ms-2">{{ $t(node.value.shortTitle ?? node.value.title)
+                    <span class="d-none d-md-inline d-xl-none ms-2">{{ $t(node.value.description ?? node.value.title)
                     }}</span>
                     <span class="d-md-none d-xl-inline ms-2">{{ $t(node.value.title) }}</span>
                 </a>

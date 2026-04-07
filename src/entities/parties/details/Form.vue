@@ -23,21 +23,11 @@
             <div class="row">
                 <!-- partyType -->
                 <div class="col-sm-auto mb-2">
-                    <select v-model="item.partyType" :disabled="readonly || item.id > 0" class="form-select">
-                        <option :value="PartyTypes.Person">{{ $t("person") }}</option>
-                        <option :value="PartyTypes.Organization">{{ $t("organization") }}</option>
+                    <select v-model="item.partyType" class="form-select">
+                        <option :value="PartyTypes.Person">{{ $t("party.person") }}</option>
+                        <option :value="PartyTypes.Organization">{{ $t("party.organization") }}</option>
                     </select>
-                    <FormLabel :label="$t('type')" />
-                </div>
-                <!-- code -->
-                <div class="col-sm mb-2">
-                    <div class="input-group">
-                        <div class="input-group-text">
-                            <Icon name="code" />
-                        </div>
-                        <input v-model="item.code" maxlength="32" :readonly="readonly" class="form-control" />
-                    </div>
-                    <FormLabel :label="$t('code')" />
+                    <FormLabel :label="$t('party.partyType')" />
                 </div>
             </div>
 
@@ -46,23 +36,23 @@
                 <div class="row">
                     <div class="col-sm-auto mb-2">
                         <input v-model="(item as Person).salutation" maxlength="16" :readonly="readonly"
-                            class="form-control" :placeholder="$t('salutation')" />
-                        <FormLabel :label="$t('salutation')" />
+                            class="form-control" />
+                        <FormLabel :label="$t('party.salutation')" />
                     </div>
                     <div class="col-sm mb-2">
                         <input v-model="(item as Person).givenName" maxlength="64" :readonly="readonly"
-                            class="form-control" :placeholder="$t('givenName')" />
-                        <FormLabel :label="$t('givenName')" />
+                            class="form-control" />
+                        <FormLabel :label="$t('party.givenName')" />
                     </div>
                     <div class="col-sm mb-2">
                         <input v-model="(item as Person).middleName" maxlength="64" :readonly="readonly"
-                            class="form-control" :placeholder="$t('middleName')" />
-                        <FormLabel :label="$t('middleName')" />
+                            class="form-control" />
+                        <FormLabel :label="$t('party.middleName')" />
                     </div>
                     <div class="col-sm mb-2">
                         <input v-model="(item as Person).familyName" maxlength="64" :readonly="readonly"
-                            class="form-control" :placeholder="$t('familyName')" />
-                        <FormLabel :label="$t('familyName')" />
+                            class="form-control" />
+                        <FormLabel :label="$t('party.familyName')" />
                     </div>
                 </div>
             </template>
@@ -70,6 +60,7 @@
             <!-- Organization fields -->
             <template v-if="item.partyType === PartyTypes.Organization">
                 <div class="row">
+                    <!-- name -->
                     <div class="col mb-2">
                         <div class="input-group">
                             <div class="input-group-text">
@@ -78,12 +69,23 @@
                             <input v-model="(item as Organization).name" maxlength="128" :readonly="readonly"
                                 class="form-control" />
                         </div>
-                        <FormLabel :label="$t('name')" />
+                        <FormLabel :label="$t('party.name')" />
                     </div>
-                    <div class="col-sm mb-2">
+                    <!-- code -->
+                    <div class="col-sm col-md-2 mb-2">
+                        <div class="input-group">
+                            <div class="input-group-text">
+                                <Icon name="code" />
+                            </div>
+                            <input v-model="item.code" maxlength="32" :readonly="readonly" class="form-control" />
+                        </div>
+                        <FormLabel :label="$t('code')" />
+                    </div>
+                    <!-- legalEntity -->
+                    <div class="col-sm col-md-2 mb-2">
                         <input v-model="(item as Organization).legalEntity" maxlength="64" :readonly="readonly"
-                            class="form-control" :placeholder="$t('legalEntity')" />
-                        <FormLabel :label="$t('legalEntity')" />
+                            class="form-control" />
+                        <FormLabel :label="$t('party.legalEntity')" />
                     </div>
                 </div>
             </template>

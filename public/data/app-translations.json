@@ -40,9 +40,9 @@
     "nl": "Onderliggende facetten"
   },
   "facet.description": {
-    "en": "Manage the facets that are available for products.",
-    "fr": "Gérez les facettes disponibles pour les produits.",
-    "nl": "Beheer de facetten die beschikbaar zijn voor producten."
+    "en": "Facets can be used to categorize and organize Products. Facets can have parent and child relationships with other facets, allowing for a hierarchical structure. They can also be associated with facet groups to further organize them within the taxonomy.Facets are usually described in plural form, while Products are described in singular form.",
+    "fr": "Les facettes peuvent être utilisées pour catégoriser et organiser les produits. Les facettes peuvent avoir des relations parent-enfant avec d'autres facettes, permettant une structure hiérarchique. Elles peuvent également être associées à des groupes de facettes pour les organiser davantage au sein de la taxonomie. Les facettes sont généralement décrites au pluriel, tandis que les produits sont décrits au singulier.",
+    "nl": "Facetten kunnen worden gebruikt om producten te categoriseren en te organiseren. Facetten kunnen ouder- en kindrelaties hebben met andere facetten, waardoor een hiërarchische structuur ontstaat. Ze kunnen ook worden geassocieerd met facetgroepen om ze verder te organiseren binnen de taxonomie. Facetten worden meestal in meervoud beschreven, terwijl producten in enkelvoud worden beschreven."
   },
   "facet.parentFacetGroups": {
     "en": "Parent Groups",
@@ -65,9 +65,9 @@
     "nl": "Onderliggende facetten"
   },
   "facetGroup.description": {
-    "en": "Manage the facet groups that are available for products.",
-    "fr": "Gérez les groupes de facettes disponibles pour les produits.",
-    "nl": "Beheer de facetgroepen die beschikbaar zijn voor producten."
+    "en": "Facet groups can be used to organize facets. e.g. a \"Color\" facet group can have child facets like \"Red\", \"Blue\", \"Green\", etc.",
+    "fr": "Les groupes de facettes peuvent être utilisés pour organiser les facettes. Par exemple, un groupe de facettes \"Couleur\" peut avoir des facettes enfants comme \"Rouge\", \"Bleu\", \"Vert\", etc.",
+    "nl": "Facetgroepen kunnen worden gebruikt om facetten te organiseren. Bijvoorbeeld een \"Kleur\" facetgroep kan onderliggende facetten hebben zoals \"Rood\", \"Blauw\", \"Groen\", etc."
   },
   "facetGroup.facets": {
     "en": "Facets",
@@ -98,6 +98,66 @@
     "en": "Top-level",
     "fr": "Premier niveau",
     "nl": "Top-level"
+  },
+  "parties": {
+    "en": "Parties",
+    "fr": "Parties",
+    "nl": "Partijen"
+  },
+  "party": {
+    "en": "Party",
+    "fr": "Partie",
+    "nl": "Partij"
+  },
+  "party.description": {
+    "en": "Parties represent the different stakeholders.",
+    "fr": "Les parties représentent les différentes parties prenantes.",
+    "nl": "Partijen vertegenwoordigen de verschillende belanghebbenden."
+  },
+  "party.legalEntity": {
+    "en": "Legal entity",
+    "fr": "Entité légale",
+    "nl": "Rechtspersoon"
+  },
+  "party.name": {
+    "en": "Name",
+    "fr": "Nom",
+    "nl": "Naam"
+  },
+  "party.organization": {
+    "en": "Organization",
+    "fr": "Organisation",
+    "nl": "Organisatie"
+  },
+  "party.partyType": {
+    "en": "Type",
+    "fr": "Type",
+    "nl": "Type"
+  },
+  "party.person": {
+    "en": "Person",
+    "fr": "Personne",
+    "nl": "Persoon"
+  },
+  "party.salutation": {
+    "en": "Salutation",
+    "fr": "Salutation",
+    "nl": "Aanhef"
+  },
+  "party.givenName": {
+    "en": "Given Name",
+    "fr": "Prénom",
+    "nl": "Voornaam"
+  },
+  "party.middleName": {
+    "en": "Middle Name",
+    "fr": "Deuxième prénom",
+    "nl": "Tussennaam"
+  },
+  "party.familyName": {
+    "en": "Family Name",
+    "fr": "Nom de famille",
+    "nl": "Achternaam"
   },
   "productInformationManagement": {
     "en": "Product Information Management",
@@ -140,9 +200,14 @@
     "nl": "Prijzen"
   },
   "product.description": {
-    "en": "Manage the products that are available in the PIM.",
-    "fr": "Gérez les produits disponibles dans le GIP.",
-    "nl": "Beheer de producten die beschikbaar zijn in de PIM."
+    "en": "Manage the products that are available.",
+    "fr": "Gérez les produits disponibles.",
+    "nl": "Beheer de producten die beschikbaar zijn."
+  },
+  "stakeholders": {
+    "en": "Stakeholders",
+    "fr": "Parties prenantes",
+    "nl": "Belanghebbenden"
   },
   "taxonomy": {
     "en": "Taxonomy",
@@ -160,8 +225,8 @@
     "nl": "Eenheidstypen"
   },
   "unitType.description": {
-    "en": "Manage the different unit types that can be used for prices from products in the PIM.",
-    "fr": "Gérez les différents types d'unités qui peuvent être utilisés pour les prix des produits dans le GIP.",
-    "nl": "Beheer de verschillende eenheidstypen die kunnen worden gebruikt voor prijzen van producten in de PIM."
+    "en": "Manage the different unit types that can be used for prices from products.",
+    "fr": "Gérez les différents types d'unités qui peuvent être utilisés pour les prix des produits.",
+    "nl": "Beheer de verschillende eenheidstypen die kunnen worden gebruikt voor prijzen van producten."
   }
 }

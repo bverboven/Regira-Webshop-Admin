@@ -24,27 +24,34 @@
       {
         "id": "Catalog",
         "title": "catalog",
-        "shortTitle": "catalog",
+        "description": "catalog",
         "icon": "catalog"
       },
       {
         "id": "Taxonomy",
         "title": "taxonomy",
-        "shortTitle": "taxonomy",
+        "description": "taxonomy",
         "icon": "taxonomy"
       },
       {
-        "id": "Relations",
-        "title": "relations",
-        "shortTitle": "relations",
-        "icon": "relations"
+        "id": "Stakeholders",
+        "title": "stakeholders",
+        "description": "stakeholders",
+        "icon": "stakeholders"
       }
     ],
-    "entities": ["Country", "Product", "Facet", "FacetGroup", "UnitType", "Party"],
+    "entities": [
+      "Country",
+      "Product",
+      "Facet",
+      "FacetGroup",
+      "UnitType",
+      "Party"
+    ],
     "dashboard": [
       ["Catalog", ["Product", "UnitType"]],
       ["Taxonomy", ["Facet", "FacetGroup"]],
-      ["Relations", ["Party"]]
+      ["Stakeholders", ["Party"]]
     ],
     "navbar": ["Product", ["Taxonomy", ["Facet", "FacetGroup"]], "Party"]
   }

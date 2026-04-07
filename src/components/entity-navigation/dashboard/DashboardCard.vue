@@ -1,5 +1,5 @@
 <template>
-    <div class="text-center">
+    <div class="text-center" :title="$t(node.value.description ?? node.value.title)">
         <router-link :to="{ name: node.value.routeName, query: node.value.initialQuery || {} }"
             class="btn btn-link pt-0 mt-0">
             <Icon :name="node.value.icon" size="xl" />

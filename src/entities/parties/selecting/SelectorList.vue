@@ -6,7 +6,7 @@
             </div>
             <div class="col-2 fw-bold">{{ $t("code") }}</div>
             <div class="col col-md-4 fw-bold">{{ $t("name") }}</div>
-            <div class="col d-none d-md-block fw-bold">{{ $t("type") }}</div>
+            <div class="col d-none d-md-block fw-bold">{{ $t("party.partyType") }}</div>
         </div>
 
         <template v-for="(item, i) in items" :key="item.$id">
