@@ -53,7 +53,8 @@
                 <FormSection :title="$t('description')">
                     <div class="row">
                         <div class="col mb-2">
-                            <DescriptionInput v-model="item.description" :label="$t('description')" :readonly="readonly" />
+                            <DescriptionInput v-model="item.description" :label="$t('description')"
+                                :readonly="readonly" />
                         </div>
                     </div>
                 </FormSection>
@@ -77,6 +78,7 @@ import { useLang } from "@/regira_modules/vue/lang"
 import { Feedback, TabContainer, Tab } from "@/regira_modules/vue/ui"
 import { useForm, type FormEmits, formDefaults } from "@/regira_modules/vue/entities"
 import { FormButtonsRow } from "@/components/input"
+import { Entity as Product } from "@/entities/products"
 import { Overview as RelatedFacetsOverview } from "../facet-related-facets"
 import { Overview as FacetGroupsOverview } from "../facet-group-links"
 import { Overview as ProductsOverview } from "../facet-products"
@@ -106,7 +108,7 @@ const { translate } = useLang()
 const tabs = computed(() =>
     [
         Tab.create("form", { icon: "form", title: translate("form"), isDefault: true }),
-        Tab.create("products", { icon: "product", title: translate("products") }),
+        Tab.create("products", { icon: Product.name, title: translate("products") }),
     ].filter(tab => tab)
 )
 </script>

@@ -1,10 +1,10 @@
-export { default as Entity } from "./Entity"
-export { default as ContactDataTypes } from "./ContactDataTypes"
-export { default as Form } from "./Form.vue"
-export { default as List } from "./List.vue"
-export { default as ListItem } from "./ListItem.vue"
-export { default as FormModalButton } from "./FormModalButton.vue"
-export { default as ContactDataIcon } from "./ContactDataIcon.vue"
-export { default as ActionButton } from "./ActionButton.vue"
-export { default as Overview } from "./Overview.vue"
-export * from "./functions"
+export { default as ContactDetails } from "./Entity";
+export { default as ContactDataTypes } from "./ContactDataTypes";
+export { default as Form } from "./Form.vue";
+export { default as List } from "./List.vue";
+export { default as ListItem } from "./ListItem.vue";
+export { default as FormModalButton } from "./FormModalButton.vue";
+export { default as ContactDataIcon } from "./ContactDataIcon.vue";
+export { default as ActionButton } from "./ActionButton.vue";
+export { default as Overview } from "./Overview.vue";
+export * from "./functions";

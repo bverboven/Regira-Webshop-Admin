@@ -3,6 +3,9 @@
   "catalog": "bi bi-book",
   "component": "bi bi-boxes",
   "price": "bi bi-currency-euro",
+  "organization": "bi bi-building",
+  "person": "bi bi-person",
   "stakeholders": "bi bi-people",
+  "supplier": "bi bi-truck",
   "taxonomy": "bi bi-collection"
 }

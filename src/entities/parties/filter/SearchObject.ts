@@ -11,6 +11,8 @@ export class EntitySearchObject extends SearchObjectBase {
     maxLastModified?: Date
 
     isArchived?: boolean
+
+    productIdSupplied?: number | Array<number>
 }
 
 export default EntitySearchObject

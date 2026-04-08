@@ -66,7 +66,7 @@
 
 <script setup lang="ts">
 import { useFilter, type FilterEmits } from "@/regira_modules/vue/entities"
-import { PartyTypes } from "../data/Entity"
+import PartyTypes from "../data/PartyTypes"
 import SearchObject from "./SearchObject"
 
 interface Emits extends /* @vue-ignore */ FilterEmits<SearchObject> { }

@@ -48,10 +48,6 @@
                             <InputSelectorInline v-model="item" />
                         </FormSection>
 
-                        <FormSection :title="$t('product.suppliers')">
-                            <SupplierInputSelectorInline v-model="item" />
-                        </FormSection>
-
                         <FormSection :title="$t('product.prices')">
                             <PricesOverview v-model="item" />
                         </FormSection>
@@ -86,6 +82,12 @@
                 <AssemblyOverview :product="item" />
             </template>
 
+            <template #suppliers>
+                <FormSection :title="$t('product.suppliers')">
+                    <SupplierInputSelectorOverview v-model="item" />
+                </FormSection>
+            </template>
+
         </TabContainer>
 
         <Debug :modelValue="{
@@ -105,7 +107,7 @@ import { InputSelector as UnitTypeInputSelector } from "@/entities/unit-types"
 import AssemblyOverview from "@/entities/products/product-assemblies/Overview.vue"
 import ComponentOverview from "@/entities/products/product-components/Overview.vue"
 import { InputSelectorInline } from "@/entities/products/product-facets/"
-import { InputSelectorInline as SupplierInputSelectorInline } from "@/entities/products/product-suppliers/"
+import { InputSelectorInline as SupplierInputSelectorInline, InputSelectorOverview as SupplierInputSelectorOverview } from "@/entities/products/product-suppliers/"
 import PricesOverview from "@/entities/products/product-prices/Overview.vue"
 import config from "../config/config"
 import Entity from "../data/Entity"
@@ -138,6 +140,7 @@ const tabs = computed(() =>
         Tab.create("form", { icon: "form", title: translate("form"), isDefault: true }),
         !screen.isLarge ? Tab.create("product.components", { icon: "component", title: translate("product.components") }) : null,
         Tab.create("assemblies", { icon: "assembly", title: translate("assemblies") }),
+        Tab.create("suppliers", { icon: "supplier", title: translate("product.suppliers") }),
     ].filter(tab => tab)
 )
 </script>

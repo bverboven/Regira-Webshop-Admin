@@ -1,19 +1,24 @@
 <template>
-    <div class="row">
+    <div>
+        <div class="row mb-2">
+            <div class="col">
+                <InputSelector @select="handleAdd" :filterDefaults="{ exclude: excludeIds }" />
+            </div>
+        </div>
+
         <template v-for="item in items" :key="item.id">
-            <div class="col-auto mb-2 pe-0">
-                <div class="form-control p-0" :class="{ 'is-deleted': item._deleted }">
-                    <FormModalButton :modelValue="item.supplier!" />
-                    {{ getSupplier(item.supplier!)?.$title ?? '' }}
-                    <button type="button" class="btn btn-outline-danger border-0" @click="handleRemove(item)">
-                        <Icon name="delete" />
-                    </button>
+            <div class="row mb-2" :class="{ 'is-deleted': item._deleted }">
+                <div class="col">
+                    <div class="input-group">
+                        <FormModalButton :modelValue="item.supplier!" />
+                        <span class="form-control">{{ getSupplier(item.supplier!)?.$title ?? '' }}</span>
+                        <button type="button" class="btn btn-outline-danger" @click="handleRemove(item)">
+                            <Icon name="delete" />
+                        </button>
+                    </div>
                 </div>
             </div>
         </template>
-        <div class="col-auto mb-2">
-            <InputSelector @select="handleAdd" :filterDefaults="{ exclude: excludeIds }" />
-        </div>
     </div>
 </template>
 
@@ -36,10 +41,6 @@ function handleAdd(item?: Party) {
     model.value.suppliers.push(ProductSupplier.create({ productId: model.value.id, supplierId: item?.id, supplier: item }))
 }
 
-const { fromPool, service } = useEntityStore()
-const getSupplier = (x: Party) => {
-    const supplier = fromPool(x)
-    console.debug("getSupplier", { x, supplier })
-    return supplier
-}
+const { fromPool } = useEntityStore()
+const getSupplier = (x: Party) => fromPool(x)
 </script>

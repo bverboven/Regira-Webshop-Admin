@@ -94,6 +94,11 @@
     "fr": "Facettes",
     "nl": "Facetten"
   },
+  "location": {
+    "en": "Location",
+    "fr": "Emplacement",
+    "nl": "Locatie"
+  },
   "isRoot": {
     "en": "Top-level",
     "fr": "Premier niveau",

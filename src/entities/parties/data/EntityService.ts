@@ -1,6 +1,6 @@
 import type { AxiosInstance } from "axios";
 import { EntityServiceBase, type IConfig } from "@/regira_modules/vue/entities";
-import Entity, { Person, Organization, PartyTypes } from "./Entity";
+import Entity from "./Entity";
 import { ContactDetails } from "../party-contact-data/Entity";
 import PartyAddress from "../party-addresses/Entity";
 
@@ -23,24 +23,7 @@ export class EntityService extends EntityServiceBase<Entity> {
     if (item instanceof Entity) {
       return item;
     }
-    const partyType = (item as any).partyType;
-    if (partyType === PartyTypes.Person) {
-      return Object.assign(
-        this.createInstance(Person as new () => Person),
-        item || {},
-      );
-    }
-    if (partyType === PartyTypes.Organization) {
-      return Object.assign(
-        this.createInstance(Organization as new () => Organization),
-        item || {},
-      );
-    }
-    // Default to Person if no partyType is set
-    return Object.assign(
-      this.createInstance(Person as new () => Person),
-      item || {},
-    );
+    return Object.assign(new Entity(), item);
   }
 }
 

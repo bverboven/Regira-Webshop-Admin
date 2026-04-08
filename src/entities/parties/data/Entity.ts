@@ -1,20 +1,23 @@
 import { EntityBase } from "@/regira_modules/vue/entities";
 import type PartyAddress from "../party-addresses/Entity";
 import type PartyContactData from "../party-contact-data/Entity";
+import { PartyTypes } from "./PartyTypes";
+import { getInitials } from "@/regira_modules/vue/formatters";
+import { ContactDataTypes } from "../party-contact-data";
 
-export const PartyTypes = {
-  Person: "PERSON",
-  Organization: "ORGANIZATION",
-} as const;
-
-export type PartyTypes = (typeof PartyTypes)[keyof typeof PartyTypes];
-
-export abstract class Party extends EntityBase {
+export class Party extends EntityBase {
   id: number = 0;
   partyType: string = "";
   code?: string;
 
-  abstract get $title(): string | undefined;
+  // organization
+  name: string = "";
+  legalEntity?: string;
+  // person
+  salutation?: string;
+  givenName?: string;
+  middleName?: string;
+  familyName?: string;
 
   description?: string;
 
@@ -31,31 +34,45 @@ export abstract class Party extends EntityBase {
   override get $id(): string | number {
     return this.id || "new";
   }
-}
-
-export class Person extends Party {
-  partyType: string = PartyTypes.Person;
-
-  salutation?: string;
-  givenName?: string;
-  middleName?: string;
-  familyName?: string;
-
   override get $title(): string | undefined {
-    return (
-      `${this.givenName ?? ""} ${this.familyName ?? ""}`.trim() || undefined
-    );
+    return this.partyType == PartyTypes.Organization
+      ? `${this.name ?? ""} ${this.legalEntity ?? ""}`.trim()
+      : `${this.givenName ?? ""} ${this.familyName ?? ""}`.trim();
   }
-}
 
-export class Organization extends Party {
-  partyType: string = PartyTypes.Organization;
-
-  name: string = "";
-  legalEntity?: string;
-
-  override get $title(): string | undefined {
-    return this.name;
+  get $isOrganization() {
+    return this.partyType == PartyTypes.Organization;
+  }
+  get $initials(): string {
+    const input = this.$isOrganization
+      ? (this.name ?? "")
+      : `${this.givenName ?? ""} ${this.familyName ?? ""}`.trim();
+    return getInitials(input ?? "");
+  }
+  // main address
+  get $address(): PartyAddress | undefined {
+    if ((this.addresses?.length ?? 0) > 0) {
+      return this.addresses![0];
+    }
+    return undefined;
+  }
+  // main phone
+  get $phone(): string | undefined {
+    return this.contactData
+      ?.filter((x) => ContactDataTypes.phone == x.dataType!)
+      .map((x) => x.value)[0];
+  }
+  // main email
+  get $email(): string | undefined {
+    return this.contactData
+      ?.filter((x) => ContactDataTypes.email === x.dataType)
+      .map((x) => x.value)[0];
+  }
+  // main website
+  get $website(): string | undefined {
+    return this.contactData
+      ?.filter((x) => ContactDataTypes.website === x.dataType)
+      .map((x) => x.value)[0];
   }
 }
 

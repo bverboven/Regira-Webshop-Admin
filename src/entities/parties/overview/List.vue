@@ -4,9 +4,9 @@
             <div class="col-auto fw-bold">
                 <Icon name="edit" class="m-1" />
             </div>
-            <div class="col-2 col-lg-1 fw-bold">{{ $t("code") }}</div>
             <div class="col col-md-3 fw-bold">{{ $t("name") }}</div>
-            <div class="col d-none d-md-block fw-bold">{{ $t("party.partyType") }}</div>
+            <div class="col d-none d-lg-block fw-bold">{{ $t("location") }}</div>
+            <div class="col d-none d-md-block fw-bold">{{ $t("contact") }}</div>
             <div class="col-auto fw-bold">
                 <Icon name="delete" class="text-muted m-1" />
             </div>

@@ -38,22 +38,22 @@
                     <template v-if="item.partyType === PartyTypes.Person">
                         <div class="row">
                             <div class="col-sm-auto mb-2">
-                                <input v-model="(item as Person).salutation" maxlength="16" :readonly="readonly"
+                                <input v-model="item.salutation" maxlength="16" :readonly="readonly"
                                     class="form-control" />
                                 <FormLabel :label="$t('party.salutation')" />
                             </div>
                             <div class="col-sm mb-2">
-                                <input v-model="(item as Person).givenName" maxlength="64" :readonly="readonly"
+                                <input v-model="item.givenName" maxlength="64" :readonly="readonly"
                                     class="form-control" />
                                 <FormLabel :label="$t('party.givenName')" />
                             </div>
                             <div class="col-sm mb-2">
-                                <input v-model="(item as Person).middleName" maxlength="64" :readonly="readonly"
+                                <input v-model="item.middleName" maxlength="64" :readonly="readonly"
                                     class="form-control" />
                                 <FormLabel :label="$t('party.middleName')" />
                             </div>
                             <div class="col-sm mb-2">
-                                <input v-model="(item as Person).familyName" maxlength="64" :readonly="readonly"
+                                <input v-model="item.familyName" maxlength="64" :readonly="readonly"
                                     class="form-control" />
                                 <FormLabel :label="$t('party.familyName')" />
                             </div>
@@ -69,7 +69,7 @@
                                     <div class="input-group-text">
                                         <Icon name="title" />
                                     </div>
-                                    <input v-model="(item as Organization).name" maxlength="128" :readonly="readonly"
+                                    <input v-model="item.name" maxlength="128" :readonly="readonly"
                                         class="form-control" />
                                 </div>
                                 <FormLabel :label="$t('party.name')" />
@@ -80,13 +80,14 @@
                                     <div class="input-group-text">
                                         <Icon name="code" />
                                     </div>
-                                    <input v-model="item.code" maxlength="32" :readonly="readonly" class="form-control" />
+                                    <input v-model="item.code" maxlength="32" :readonly="readonly"
+                                        class="form-control" />
                                 </div>
                                 <FormLabel :label="$t('code')" />
                             </div>
                             <!-- legalEntity -->
                             <div class="col-sm col-md-2 mb-2">
-                                <input v-model="(item as Organization).legalEntity" maxlength="64" :readonly="readonly"
+                                <input v-model="item.legalEntity" maxlength="64" :readonly="readonly"
                                     class="form-control" />
                                 <FormLabel :label="$t('party.legalEntity')" />
                             </div>
@@ -122,11 +123,13 @@ import { useLang } from "@/regira_modules/vue/lang"
 import { Feedback, TabContainer, Tab } from "@/regira_modules/vue/ui"
 import { FormButtonsRow } from "@/components/input"
 import { useForm, type FormEmits, formDefaults } from "@/regira_modules/vue/entities"
+import { Entity as Product } from "@/entities/products"
 import { Overview as AddressesOverview } from "../party-addresses"
 import { Overview as ContactDataOverview } from "../party-contact-data"
 import { Overview as ProductsOverview } from "../party-products"
 import config from "../config/config"
-import Entity, { Person, Organization, PartyTypes } from "../data/Entity"
+import Entity from "../data/Entity"
+import PartyTypes from "../data/PartyTypes"
 import useEntityStore from "../data/store"
 
 interface Emits extends /* @vue-ignore */ FormEmits<Entity> { }
@@ -147,20 +150,17 @@ const { service: entityService } = useEntityStore()
 const { item, feedback, handleCancel, handleSubmit, handleRemove, handleRestore } = useForm<Entity>({ entityService, props, emit })
 
 watch(() => item.value.partyType, () => {
-    const organization = item.value as Organization
-    const person = item.value as Person
-
     if (item.value.partyType === PartyTypes.Person) {
         item.value = entityService.toEntity({
             ...item.value,
-            familyName: organization.name
-        }) as Person
+            familyName: item.value.name
+        })
     }
     if (item.value.partyType === PartyTypes.Organization) {
         item.value = entityService.toEntity({
             ...item.value,
-            name: person.familyName
-        }) as Organization
+            name: item.value.familyName
+        })
     }
 })
 
@@ -169,7 +169,7 @@ const { translate } = useLang()
 const tabs = computed(() =>
     [
         Tab.create("form", { icon: "form", title: translate("form"), isDefault: true }),
-        Tab.create("products", { icon: "product", title: translate("products") }),
+        Tab.create("products", { icon: Product.name, title: translate("products") }),
     ].filter(tab => tab)
 )
 </script>
