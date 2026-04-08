@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </template>
-            <div v-else class="italic-muted">{{ $t("no items") }}</div>
+            <div v-else class="italic-muted">{{ $t("noItems") }}</div>
         </template>
     </FormSection>
 </template>
