@@ -149,6 +149,16 @@
     "nl": "Beheerder",
     "fr": "Admin"
   },
+  "common.all": {
+    "en": "All",
+    "nl": "Alles",
+    "fr": "Tout"
+  },
+  "common.allTypes": {
+    "en": "All types",
+    "nl": "Alle types",
+    "fr": "Tous les types"
+  },
   "addContactData": {
     "en": "add new phone, email, website",
     "nl": "nieuwe tel, e-mail of website",

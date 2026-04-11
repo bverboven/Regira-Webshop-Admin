@@ -16,6 +16,10 @@ export class EntitySearchObject extends SearchObjectBase {
   ancestorId?: number | Array<number>;
   offspringId?: number | Array<number>;
   rootId?: number | Array<number>;
+
+  isParent?: boolean;
+  isChild?: boolean;
+  isRoot?: boolean;
 }
 
 export default EntitySearchObject;

@@ -1,6 +1,7 @@
 import { EntityBase } from "@/regira_modules/vue/entities";
 import type PartyAddress from "../party-addresses/Entity";
 import type PartyContactData from "../party-contact-data/Entity";
+import type { PartyRelationship } from "./PartyRelationship";
 import { PartyTypes } from "./PartyTypes";
 import { getInitials } from "@/regira_modules/vue/formatters";
 import { ContactDataTypes } from "../party-contact-data";
@@ -30,6 +31,9 @@ export class Party extends EntityBase {
 
   contactData?: PartyContactData[];
   addresses?: PartyAddress[];
+
+  parentRelationships?: Array<PartyRelationship>;
+  childRelationships?: Array<PartyRelationship>;
 
   override get $id(): string | number {
     return this.id || "new";

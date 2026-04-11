@@ -1,3 +1,37 @@
+<script setup lang="ts">
+import { ref } from "vue";
+import { useFilter, type FilterEmits } from "@/regira_modules/vue/entities";
+import { type Entity as UnitType, InputSelector as UnitTypeInputSelector } from "@/entities/unit-types";
+import SearchObject from "./SearchObject";
+import InputSelector from "../selecting/InputSelector.vue";
+import Product from "../data/Entity";
+import { NullableCheckBox } from "@/regira_modules/vue/ui";
+
+interface Emits extends /* @vue-ignore */ FilterEmits {}
+const emit = defineEmits<
+  Emits & {
+    "update:modelValue": (value: SearchObject) => true;
+    filter: (value: SearchObject) => true;
+  }
+>();
+
+const props = defineProps<{
+  resultCount?: number;
+}>();
+
+const searchObject = defineModel<SearchObject>({ required: true });
+
+const unitType = ref<UnitType>();
+const component = ref<Product>();
+const assembly = ref<Product>();
+
+const { filterIsActive, handleReset } = useFilter({
+  searchObject,
+  emit,
+  Constructor: SearchObject,
+});
+</script>
+
 <template>
   <div class="adv-filter">
     <div class="row">
@@ -67,36 +101,3 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref } from "vue";
-import { useFilter, type FilterEmits } from "@/regira_modules/vue/entities";
-import { type Entity as UnitType, InputSelector as UnitTypeInputSelector } from "@/entities/unit-types";
-import SearchObject from "./SearchObject";
-import InputSelector from "../selecting/InputSelector.vue";
-import Product from "../data/Entity";
-import { NullableCheckBox } from "@/regira_modules/vue/ui";
-
-interface Emits extends /* @vue-ignore */ FilterEmits {}
-const emit = defineEmits<
-  Emits & {
-    "update:modelValue": (value: SearchObject) => true;
-    filter: (value: SearchObject) => true;
-  }
->();
-
-const props = defineProps<{
-  resultCount?: number;
-}>();
-
-const searchObject = defineModel<SearchObject>({ required: true });
-
-const unitType = ref<UnitType>();
-const component = ref<Product>();
-const assembly = ref<Product>();
-
-const { filterIsActive, handleReset } = useFilter({
-  searchObject,
-  emit,
-  Constructor: SearchObject,
-});
-</script>
