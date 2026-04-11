@@ -1,49 +1,52 @@
 <template>
   <div>
-    <div class="row mb-2">
-      <div class="col">
-        <PartyInputSelector
-          v-model="newItem.parent"
-          v-model:idValue="newItem.parentId"
-          :filterDefaults="{ exclude: excludedIds }"
-        />
-      </div>
-      <div class="col-auto">
-        <RelationshipTypeDropDown v-model="newItem.relationshipType" v-model:idValue="newItem.relationshipTypeId" />
-      </div>
-      <div class="col-auto">
-        <button type="button" class="btn btn-success" :disabled="!newItem.parentId" @click="handleAdd(newItem)">
-          <Icon name="new" />
-        </button>
-      </div>
-    </div>
-
-    <template v-for="item in items" :key="item.$id">
-      <div class="row mb-2 align-items-center" :class="{ 'is-deleted': item._deleted }">
-        <div class="col-auto">
-          <PartyFormModalButton :modelValue="item.parent" />
-        </div>
+    <template v-if="party.id > 0">
+      <div class="row mb-2">
         <div class="col">
-          {{ item.parent?.$title ?? "" }}
-          <small v-if="item.parent?.$phone" class="d-block text-muted">
-            <Icon name="phone" />
-            {{ item.parent?.$phone }}
-          </small>
-          <small v-if="item.parent?.$email" class="d-block text-muted">
-            <Icon name="email" />
-            {{ item.parent?.$email }}
-          </small>
+          <PartyInputSelector
+            v-model="newItem.parent"
+            v-model:idValue="newItem.parentId"
+            :filterDefaults="{ exclude: excludedIds }"
+          />
         </div>
         <div class="col-auto">
-          <small class="text-muted">{{ item.relationshipType?.title }}</small>
+          <RelationshipTypeDropDown v-model="newItem.relationshipType" v-model:idValue="newItem.relationshipTypeId" />
         </div>
         <div class="col-auto">
-          <button type="button" class="btn btn-outline-danger btn-sm" @click="handleRemove(item)">
-            <Icon name="delete" />
+          <button type="button" class="btn btn-success" :disabled="!newItem.parentId" @click="handleAdd(newItem)">
+            <Icon name="new" />
           </button>
         </div>
       </div>
+
+      <template v-for="item in items" :key="item.$id">
+        <div class="row mb-2 align-items-center" :class="{ 'is-deleted': item._deleted }">
+          <div class="col-auto">
+            <PartyFormModalButton :modelValue="item.parent" />
+          </div>
+          <div class="col">
+            {{ item.parent?.$title ?? "" }}
+            <small v-if="item.parent?.$phone" class="d-block text-muted">
+              <Icon name="phone" />
+              {{ item.parent?.$phone }}
+            </small>
+            <small v-if="item.parent?.$email" class="d-block text-muted">
+              <Icon name="email" />
+              {{ item.parent?.$email }}
+            </small>
+          </div>
+          <div class="col-auto">
+            <small class="text-muted">{{ item.relationshipType?.title }}</small>
+          </div>
+          <div class="col-auto">
+            <button type="button" class="btn btn-outline-danger btn-sm" @click="handleRemove(item)">
+              <Icon name="delete" />
+            </button>
+          </div>
+        </div>
+      </template>
     </template>
+    <p v-else class="italic-muted">{{ $t("saveFirst") }}</p>
   </div>
 </template>
 
