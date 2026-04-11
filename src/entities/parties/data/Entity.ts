@@ -11,6 +11,7 @@ export class Party extends EntityBase {
   partyType: string = "";
   code?: string;
 
+  title?: string;
   // organization
   name: string = "";
   legalEntity?: string;

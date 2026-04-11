@@ -31,6 +31,7 @@ import { default as entityPlugins } from "@/entities";
 
 import { Entity as Country } from "@/entities/countries";
 import { Entity as UnitType } from "@/entities/unit-types";
+import { Entity as RelationshipType } from "@/entities/party-relationship-types";
 
 import App from "@/App.vue";
 import DescriptionInput from "@/components/input/DescriptionInput.vue";
@@ -147,7 +148,7 @@ fetch(`${appConfig.baseUrl}/config.json?v=${formatDateTime(new Date(), "yyyyMMdd
           app.config.globalProperties.$feedback.success(welcomeMsg);
 
           // preloading
-          const preloaderTypes = [Country, UnitType];
+          const preloaderTypes = [Country, UnitType, RelationshipType];
           const { preload } = usePreloader();
           await preload(preloaderTypes as any);
 

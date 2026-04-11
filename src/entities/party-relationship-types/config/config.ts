@@ -1,7 +1,7 @@
 import type { IConfig } from "@/regira_modules/vue/entities";
 import Entity from "../data/Entity";
 
-const api = "/party-relationship-types";
+const api = "/relationship-types";
 
 const config: IConfig = {
   id: Entity.name,

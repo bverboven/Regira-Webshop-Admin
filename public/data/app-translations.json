@@ -119,6 +119,11 @@
     "fr": "Enfant",
     "nl": "Onderliggende partij"
   },
+  "party.children": {
+    "en": "Children",
+    "fr": "Enfants",
+    "nl": "Onderliggende partijen"
+  },
   "party.description": {
     "en": "Parties represent the different stakeholders.",
     "fr": "Les parties représentent les différentes parties prenantes.",
@@ -144,6 +149,11 @@
     "fr": "Parent",
     "nl": "Bovenliggende partij"
   },
+  "party.parents": {
+    "en": "Parents",
+    "fr": "Parents",
+    "nl": "Bovenliggende partijen"
+  },
   "party.partyType": {
     "en": "Type",
     "fr": "Type",
@@ -153,6 +163,11 @@
     "en": "Person",
     "fr": "Personne",
     "nl": "Persoon"
+  },
+  "party.relations": {
+    "en": "Relations",
+    "fr": "Relations",
+    "nl": "Relaties"
   },
   "party.salutation": {
     "en": "Salutation",

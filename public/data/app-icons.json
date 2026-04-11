@@ -7,5 +7,7 @@
   "person": "bi bi-person",
   "stakeholders": "bi bi-people",
   "supplier": "bi bi-truck",
-  "taxonomy": "bi bi-collection"
+  "taxonomy": "bi bi-collection",
+  "parentParty": "bi bi-person-up",
+  "childParty": "bi bi-person-down"
 }

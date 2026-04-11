@@ -1,6 +1,7 @@
 <template>
   <FormSection :title="$t('products')">
     <Filter
+      v-if="items && items.length > 0"
       v-model="searchObject"
       @filter="searchHandler(true)"
       @change="searchHandler(true)"
@@ -8,6 +9,7 @@
     />
     <LoadingContainer :is-loading="isLoading">
       <List
+        v-if="items && items.length > 0"
         :modelValue="items"
         :is-loading="isLoading"
         :feedback="feedback"

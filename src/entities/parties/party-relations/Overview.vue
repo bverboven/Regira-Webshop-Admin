@@ -3,7 +3,7 @@
     <div class="col-lg-6">
       <FormSection>
         <template #title>
-          <h3 class="p-2 mb-2"><Icon :name="Party.name" /> {{ $t("party.parentParties") }}</h3>
+          <h3 class="p-2 mb-2"><Icon name="parentParty" /> {{ $t("party.parents") }}</h3>
         </template>
         <OverviewParentParties v-model="item.parentRelationships" :party="item" />
       </FormSection>
@@ -11,7 +11,7 @@
     <div class="col-lg-6">
       <FormSection>
         <template #title>
-          <h3 class="p-2 mb-2"><Icon :name="Party.name" /> {{ $t("party.childParties") }}</h3>
+          <h3 class="p-2 mb-2"><Icon name="childParty" /> {{ $t("party.children") }}</h3>
         </template>
         <OverviewChildParties v-model="item.childRelationships" :party="item" />
       </FormSection>

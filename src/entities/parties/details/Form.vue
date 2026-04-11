@@ -141,7 +141,7 @@ import { Entity as Product } from "@/entities/products";
 import { Overview as AddressesOverview } from "../party-addresses";
 import { Overview as ContactDataOverview } from "../party-contact-data";
 import { Overview as ProductsOverview } from "../party-products";
-import { Overview as RelationshipsOverview } from "../party-relationships";
+import { Overview as RelationshipsOverview } from "../party-relations";
 import config from "../config/config";
 import Entity from "../data/Entity";
 import PartyTypes from "../data/PartyTypes";
