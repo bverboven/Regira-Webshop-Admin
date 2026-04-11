@@ -3,6 +3,7 @@ import { EntityServiceBase, type IConfig } from "@/regira_modules/vue/entities";
 import Entity from "./Entity";
 import { ContactDetails } from "../party-contact-data/Entity";
 import PartyAddress from "../party-addresses/Entity";
+import { PartyRelationship } from "./PartyRelationship";
 
 export class EntityService extends EntityServiceBase<Entity> {
   constructor(axios: AxiosInstance, config: IConfig) {
@@ -16,6 +17,12 @@ export class EntityService extends EntityServiceBase<Entity> {
     item.contactData = item.contactData
       ?.filter((x) => !x._deleted)
       .map((x) => ContactDetails.create({ ...x, id: Math.max(0, x.id) }));
+    item.parentRelationships = item.parentRelationships
+      ?.filter((x) => !x._deleted)
+      .map((x) => PartyRelationship.create({ ...x, id: Math.max(0, x.id) }));
+    item.childRelationships = item.childRelationships
+      ?.filter((x) => !x._deleted)
+      .map((x) => PartyRelationship.create({ ...x, id: Math.max(0, x.id) }));
     return item;
   }
 

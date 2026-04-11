@@ -11,7 +11,7 @@ const config: IConfig = {
 
   routePrefix: "parties",
   baseQueryParams: {
-    includes: ["Addresses", "ContactData"],
+    includes: ["Addresses", "ContactData", "Relationships"],
   },
   initialQuery: {},
 

@@ -113,6 +113,10 @@
         </FormSection>
       </template>
 
+      <template #relations>
+        <RelationshipsOverview v-model="item" />
+      </template>
+
       <template #products>
         <ProductsOverview :party="item" />
       </template>
@@ -137,6 +141,7 @@ import { Entity as Product } from "@/entities/products";
 import { Overview as AddressesOverview } from "../party-addresses";
 import { Overview as ContactDataOverview } from "../party-contact-data";
 import { Overview as ProductsOverview } from "../party-products";
+import { Overview as RelationshipsOverview } from "../party-relationships";
 import config from "../config/config";
 import Entity from "../data/Entity";
 import PartyTypes from "../data/PartyTypes";
@@ -189,6 +194,10 @@ const tabs = computed(() =>
       icon: "form",
       title: translate("form"),
       isDefault: true,
+    }),
+    Tab.create("relations", {
+      icon: Entity.name,
+      title: translate("party.relations"),
     }),
     Tab.create("products", {
       icon: Product.name,

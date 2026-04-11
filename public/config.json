@@ -46,12 +46,13 @@
       "Facet",
       "FacetGroup",
       "UnitType",
+      "PartyRelationshipType",
       "Party"
     ],
     "dashboard": [
       ["Catalog", ["Product", "UnitType"]],
       ["Taxonomy", ["Facet", "FacetGroup"]],
-      ["Stakeholders", ["Party"]]
+      ["Stakeholders", ["Party", "PartyRelationshipType"]]
     ],
     "navbar": ["Product", ["Taxonomy", ["Facet", "FacetGroup"]], "Party"]
   }

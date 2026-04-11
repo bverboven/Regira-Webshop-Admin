@@ -5,7 +5,7 @@
         <PartyIcon :item="item" />
       </router-link>
     </div>
-    <div class="col">
+    <div class="col col-md-3">
       <div class="d-inline-block text-truncate">
         {{ item.$title }}
       </div>

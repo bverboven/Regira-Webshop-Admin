@@ -1,3 +1,36 @@
+<script setup lang="ts">
+import { ref } from "vue";
+import { useFilter, type FilterEmits } from "@/regira_modules/vue/entities";
+import type Party from "../data/Entity";
+import PartyTypes from "../data/PartyTypes";
+import SearchObject from "./SearchObject";
+import InputSelector from "../selecting/InputSelector.vue";
+
+interface Emits extends /* @vue-ignore */ FilterEmits<SearchObject> {}
+const emit = defineEmits<
+  Emits & {
+    "update:modelValue": (value: SearchObject) => true;
+    filter: (value: SearchObject) => true;
+    "toggle-adv": () => void;
+    close: () => void;
+  }
+>();
+
+const props = defineProps<{
+  resultCount?: number;
+}>();
+
+const searchObject = defineModel<SearchObject>({ required: true });
+const ancestor = ref<Party>();
+const offspring = ref<Party>();
+
+const { filterIsActive, handleReset } = useFilter({
+  searchObject,
+  emit,
+  Constructor: SearchObject,
+});
+</script>
+
 <template>
   <div class="adv-filter">
     <div class="row">
@@ -30,66 +63,54 @@
           <input v-model.lazy.trim="searchObject.name" class="form-control" :placeholder="$t('name')" />
         </div>
       </div>
-    </div>
-    <div class="row">
       <!-- partyType -->
       <div class="col mb-2">
         <select v-model="searchObject.partyType" class="form-select">
-          <option value="">{{ $t("all") }}</option>
-          <option :value="PartyTypes.Person">{{ $t("person") }}</option>
+          <option :value="undefined">{{ $t("common.allTypes") }}</option>
+          <option :value="PartyTypes.Person">{{ $t("party.person") }}</option>
           <option :value="PartyTypes.Organization">
-            {{ $t("organization") }}
+            {{ $t("party.organization") }}
           </option>
         </select>
       </div>
     </div>
     <div class="row">
-      <!-- minCreated -->
-      <div class="col-sm mb-2">
-        <div class="input-group">
-          <div class="input-group-text">
-            <Icon name="from" />
-          </div>
-          <input type="date" v-model="searchObject.minCreated" class="form-control" />
-        </div>
+      <!-- Ancestor -->
+      <div class="col mb-2">
+        <InputSelector
+          v-model="ancestor"
+          v-model:idValue="searchObject.ancestorId as number"
+          :filterDefaults="{ isAncestor: true }"
+        >
+          <template #prepend>
+            <div class="input-group-text">
+              <NullableCheckBox v-model="searchObject.isParent" id="isAncestor" class="form-check-input" />
+            </div>
+            <div class="input-group-text">
+              <label class="form-check-label" for="isRoot">
+                <NullableCheckBox v-model="searchObject.isRoot" id="isRoot" class="form-check-input" />
+                {{ $t("isRoot") }}
+              </label>
+            </div>
+          </template>
+        </InputSelector>
+        <FormLabel :label="$t('party.parent')" />
       </div>
-      <!-- maxCreated -->
-      <div class="col-sm mb-2">
-        <div class="input-group">
-          <div class="input-group-text">
-            <Icon name="to" />
-          </div>
-          <input type="date" v-model="searchObject.maxCreated" class="form-control" />
-        </div>
+      <!-- Offspring -->
+      <div class="col mb-2">
+        <InputSelector
+          v-model="offspring"
+          v-model:idValue="searchObject.offspringId as number"
+          :filterDefaults="{ isOffspring: true }"
+        >
+          <template #prepend>
+            <div class="input-group-text">
+              <NullableCheckBox v-model="searchObject.isChild" id="isOffspring" class="form-check-input" />
+            </div>
+          </template>
+        </InputSelector>
+        <FormLabel :label="$t('party.child')" />
       </div>
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { useFilter, type FilterEmits } from "@/regira_modules/vue/entities";
-import PartyTypes from "../data/PartyTypes";
-import SearchObject from "./SearchObject";
-
-interface Emits extends /* @vue-ignore */ FilterEmits<SearchObject> {}
-const emit = defineEmits<
-  Emits & {
-    "update:modelValue": (value: SearchObject) => true;
-    filter: (value: SearchObject) => true;
-    "toggle-adv": () => void;
-    close: () => void;
-  }
->();
-
-const props = defineProps<{
-  resultCount?: number;
-}>();
-
-const searchObject = defineModel<SearchObject>({ required: true });
-
-const { filterIsActive, handleReset } = useFilter({
-  searchObject,
-  emit,
-  Constructor: SearchObject,
-});
-</script>
