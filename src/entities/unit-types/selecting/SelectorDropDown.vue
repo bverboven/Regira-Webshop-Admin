@@ -1,41 +1,26 @@
 <template>
-  <select v-model="selected" class="form-select">
-    <option value=""></option>
-    <option v-for="item in items" :value="item.id" :key="item.id">
-      {{ item.title }}
-    </option>
-  </select>
+    <select v-model="selectedId" class="form-select">
+        <option :value="undefined"></option>
+        <option v-for="item in items" :value="item.id" :key="item.id">
+            {{ item.title }}
+        </option>
+    </select>
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, type Ref } from "vue";
-import type Entity from "../data/Entity";
-import useEntityStore from "../data/store";
+import { computed, onMounted, watch, type Ref } from "vue"
+import type Entity from "../data/Entity"
+import useEntityStore from "../data/store"
 
-const emit = defineEmits<{
-  (e: "update:modelValue", args?: Entity): void;
-  (e: "update:idValue", args?: number): void;
-}>();
-const props = defineProps<{
-  modelValue?: Entity;
-  idValue?: number;
-}>();
+const selectedItem = defineModel<Entity>()
+const selectedId = defineModel<number>("idValue")
+watch(selectedId, () => (selectedItem.value = items.value.find((x) => x.id == selectedId.value)))
 
-const selected = computed({
-  get() {
-    return props.modelValue;
-  },
-  set(value) {
-    emit("update:idValue", value?.id);
-    emit("update:modelValue", value);
-  },
-});
-const { fromCache } = useEntityStore();
-
-const items = computed(() => (fromCache() as Array<Ref<Entity>>)!.map((x) => x.value));
+const { fromCache } = useEntityStore()
+const items = computed(() => (fromCache() as Array<Ref<Entity>>)!.map((x) => x.value))
 onMounted(() => {
-  if (!selected.value && props.idValue) {
-    selected.value = items.value.find((x) => x.id == props.idValue);
-  }
-});
+    if (!selectedItem.value && selectedId.value) {
+        selectedItem.value = items.value.find((x) => x.id == selectedId.value)
+    }
+})
 </script>

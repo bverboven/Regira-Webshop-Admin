@@ -35,7 +35,7 @@ All entities should be added to `src/entities/<folder>/`.
     ├── Autocomplete.vue
     ├── InputSelector.vue
     ├── Selector.vue
-    ├── SelectorDropDown.vue
+    ├── SelectorDropdown.vue
     ├── SelectorList.vue
     ├── SelectorModalButton.vue
     └── SelectorSearch.vue
@@ -89,9 +89,9 @@ Customize the form fields for the entity.
 **`SelectorList.vue`**
 Customize the headers and properties in the list component.
 
-**`selecting/Autocomplete.vue` and `SelectorDropDown.vue`**
+**`selecting/Autocomplete.vue` and `SelectorDropdown.vue`**
 Customize only if $title doesn't return the desired title for the entity. Otherwise, it will work out of the box.
-SelectorDropDown is used for smaller entities with fewer data.
+SelectorDropdown is used for smaller entities with fewer data.
 
 ## Files That Do NOT Need Changes
 
@@ -103,7 +103,7 @@ The following files reference the entity only through the generic `Entity` impor
 - `filter/Filter.vue`, `FilterInline.vue`
 - `overview/Overview.vue`
 - `details/FormModalButton.vue`
-- `selecting/Autocomplete.vue`, `InputSelector.vue`, `Selector.vue`, `SelectorDropDown.vue`, `SelectorModalButton.vue`, `SelectorSearch.vue`
+- `selecting/Autocomplete.vue`, `InputSelector.vue`, `Selector.vue`, `SelectorDropdown.vue`, `SelectorModalButton.vue`, `SelectorSearch.vue`
 
 ## Navigation
 

@@ -1,27 +1,27 @@
-import { EntityBase } from "@/regira_modules/vue/entities";
-import type FacetChildGroup from "../facet-group-links/FacetChildGroup";
-import type FacetParentGroup from "../facet-group-links/FacetParentGroup";
+import { EntityBase } from "@/regira_modules/vue/entities"
+import type FacetChildGroup from "../facet-group-links/FacetChildGroup"
+import type FacetParentGroup from "../facet-group-links/FacetParentGroup"
 
 export class FacetGroup extends EntityBase {
-  id: number = 0;
-  code?: string;
-  title: string;
-  description?: string;
+    id: number = 0
+    code?: string
+    title: string
+    description?: string
 
-  created?: Date;
-  lastModified?: Date;
+    created?: Date
+    lastModified?: Date
 
-  parentFacets?: Array<FacetChildGroup>;
-  childFacets?: Array<FacetParentGroup>;
+    parentFacets?: Array<FacetChildGroup>
+    childFacets?: Array<FacetParentGroup>
 
-  override get $id(): string | number {
-    return this.id || "new";
-  }
-  override get $title(): string | undefined {
-    return this.title;
-  }
+    override get $id(): string | number {
+        return this.id || "new"
+    }
+    override get $title(): string | undefined {
+        return this.title
+    }
 }
 
-export const Entity = FacetGroup;
+export const Entity = FacetGroup
 
-export default FacetGroup;
+export default FacetGroup

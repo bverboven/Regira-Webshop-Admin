@@ -1,16 +1,16 @@
 <template>
-  <section>
-    <h1 class="text-center">
-      {{ $tm(homeTitle) }}
-    </h1>
+    <section>
+        <h1 class="text-center">
+            {{ $tm(homeTitle) }}
+        </h1>
 
-    <Dashboard />
-  </section>
+        <Dashboard />
+    </section>
 </template>
 
 <script setup lang="ts">
-import appConfig from "@/app-config";
-import { Dashboard } from "@/components/entity-navigation";
+import appConfig from "@/app-config"
+import { Dashboard } from "@/components/entity-navigation"
 
-const { title: homeTitle } = appConfig;
+const { title: homeTitle } = appConfig
 </script>

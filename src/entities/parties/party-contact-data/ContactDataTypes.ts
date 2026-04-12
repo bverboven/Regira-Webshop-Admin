@@ -1,8 +1,8 @@
 export enum ContactDataTypes {
-  phone = "Phone",
-  email = "Email",
-  website = "Website",
-  other = "Other",
+    phone = "Phone",
+    email = "Email",
+    website = "Website",
+    other = "Other",
 }
 
-export default ContactDataTypes;
+export default ContactDataTypes

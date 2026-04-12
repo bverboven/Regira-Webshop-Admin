@@ -1,44 +1,44 @@
 <template>
-  <div class="row">
-    <template v-for="item in items" :key="item.id">
-      <div class="col-auto mb-2 pe-0">
-        <div class="form-control p-0" :class="{ 'is-deleted': item._deleted }">
-          <FormModalButton :modelValue="item.facet" />
-          {{ item.facet?.title ?? "" }}
-          <button type="button" class="btn btn-outline-danger border-0" @click="handleRemove(item)">
-            <Icon name="delete" />
-          </button>
+    <div class="row">
+        <template v-for="item in items" :key="item.id">
+            <div class="col-auto mb-2 pe-0">
+                <div class="form-control p-0" :class="{ 'is-deleted': item._deleted }">
+                    <FormModalButton :modelValue="item.facet" />
+                    {{ item.facet?.title ?? "" }}
+                    <button type="button" class="btn btn-outline-danger border-0" @click="handleRemove(item)">
+                        <Icon name="delete" />
+                    </button>
+                </div>
+            </div>
+        </template>
+        <div class="col-auto mb-2">
+            <InputSelector @select="handleAdd" :filterDefaults="{ exclude: excludeIds }" />
         </div>
-      </div>
-    </template>
-    <div class="col-auto mb-2">
-      <InputSelector @select="handleAdd" :filterDefaults="{ exclude: excludeIds }" />
     </div>
-  </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
-import type Product from "../data/Entity";
-import ProductFacet from "./Entity";
-import { type Entity as Facet, InputSelector, FormModalButton } from "@/entities/facets";
+import { computed } from "vue"
+import type Product from "../data/Entity"
+import ProductFacet from "./Entity"
+import { type Entity as Facet, InputSelector, FormModalButton } from "@/entities/facets"
 
-const model = defineModel<Product>({ required: true });
-const items = computed(() => model.value.facets ?? []);
-const excludeIds = computed(() => items.value.map((i) => i.facetId));
+const model = defineModel<Product>({ required: true })
+const items = computed(() => model.value.facets ?? [])
+const excludeIds = computed(() => items.value.map((i) => i.facetId))
 
 function handleRemove(item: ProductFacet) {
-  item._deleted = !item._deleted;
+    item._deleted = !item._deleted
 }
 
 function handleAdd(item?: Facet) {
-  if (!model.value.facets) model.value.facets = [];
-  model.value.facets.push(
-    ProductFacet.create({
-      productId: model.value.id,
-      facetId: item?.id,
-      facet: item,
-    }),
-  );
+    if (!model.value.facets) model.value.facets = []
+    model.value.facets.push(
+        ProductFacet.create({
+            productId: model.value.id,
+            facetId: item?.id,
+            facet: item,
+        })
+    )
 }
 </script>

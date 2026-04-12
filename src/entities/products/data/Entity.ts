@@ -1,36 +1,37 @@
-import { EntityBase } from "@/regira_modules/vue/entities";
-import { type Entity as UnitType } from "@/entities/unit-types";
-import type ProductComponent from "../product-components/Entity";
-import type ProductFacet from "../product-facets/Entity";
-import type ProductPricePeriod from "../product-prices/Entity";
-import type ProductSupplier from "../product-suppliers/Entity";
+import { EntityBase } from "@/regira_modules/vue/entities"
+import { type Entity as UnitType } from "@/entities/unit-types"
+import type ProductComponent from "../product-components/Entity"
+import type ProductFacet from "../product-facets/Entity"
+import type ProductPricePeriod from "../product-prices/Entity"
+import type ProductSupplier from "../product-suppliers/Entity"
 
 export class Product extends EntityBase {
-  id: number = 0;
-  title: string;
-  description?: string;
+    id: number = 0
+    title: string
+    description?: string
 
-  unitTypeId?: number;
-  price?: number;
+    unitTypeId?: number
+    defaultQuantity?: number
+    price?: number
 
-  created?: Date;
-  lastModified?: Date;
+    created?: Date
+    lastModified?: Date
 
-  unitType?: UnitType;
-  assemblies?: ProductComponent[];
-  components?: ProductComponent[];
-  facets?: ProductFacet[];
-  prices?: ProductPricePeriod[];
-  suppliers?: ProductSupplier[];
+    unitType?: UnitType
+    assemblies?: ProductComponent[]
+    components?: ProductComponent[]
+    facets?: ProductFacet[]
+    prices?: ProductPricePeriod[]
+    suppliers?: ProductSupplier[]
 
-  override get $id(): string | number {
-    return this.id || "new";
-  }
-  override get $title(): string | undefined {
-    return this.title;
-  }
+    override get $id(): string | number {
+        return this.id || "new"
+    }
+    override get $title(): string | undefined {
+        return this.title
+    }
 }
 
-export const Entity = Product;
+export const Entity = Product
 
-export default Product;
+export default Product

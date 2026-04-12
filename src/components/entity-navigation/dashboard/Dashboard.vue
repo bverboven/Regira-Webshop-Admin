@@ -1,19 +1,19 @@
 <template>
-  <div v-if="dashboardTree != null">
-    <template v-for="node in dashboardTree.roots" :key="node.value.id">
-      <DashboardContainer v-if="node.children.length" :node="node" :is-collapsed="isCollapsed" />
-    </template>
-    <Debug :modelValue="{ values: dashboardTree.getValues() }" />
-  </div>
+    <div v-if="dashboardTree != null">
+        <template v-for="node in dashboardTree.roots" :key="node.value.id">
+            <DashboardContainer v-if="node.children.length" :node="node" :is-collapsed="isCollapsed" />
+        </template>
+        <Debug :modelValue="{ values: dashboardTree.getValues() }" />
+    </div>
 </template>
 
 <script setup lang="ts">
-import { useNavigation } from "../functions";
-import DashboardContainer from "./DashboardContainer.vue";
+import { useNavigation } from "../functions"
+import DashboardContainer from "./DashboardContainer.vue"
 
 defineProps<{
-  isCollapsed?: boolean;
-}>();
+    isCollapsed?: boolean
+}>()
 
-const { dashboardTree } = useNavigation();
+const { dashboardTree } = useNavigation()
 </script>

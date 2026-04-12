@@ -1,63 +1,59 @@
 <template>
-  <div>
-    <div class="row mb-2">
-      <div class="col">
-        <InputSelector
-          v-model="newItem.facet"
-          v-model:idValue="newItem.facetId"
-          :filterDefaults="{ exclude: excludedIds }"
-        />
-      </div>
-      <div class="col-auto">
-        <button type="button" class="btn btn-success" @click="handleAdd(newItem)">
-          <Icon name="new" />
-        </button>
-      </div>
-    </div>
+    <div>
+        <div class="row mb-2">
+            <div class="col">
+                <InputSelector v-model="newItem.facet" v-model:idValue="newItem.facetId" :filterDefaults="{ exclude: excludedIds }" />
+            </div>
+            <div class="col-auto">
+                <button type="button" class="btn btn-success" @click="handleAdd(newItem)">
+                    <Icon name="new" />
+                </button>
+            </div>
+        </div>
 
-    <template v-for="item in items" :key="item.id">
-      <div class="row mb-2" :class="{ 'is-deleted': item._deleted }">
-        <div class="col">
-          <FormModalButton :modelValue="item.facet" />
-          {{ item.facet?.title ?? "" }}
-        </div>
-        <div class="col-auto">
-          <button type="button" class="btn btn-outline-danger" @click="handleRemove(item)">
-            <Icon name="delete" />
-          </button>
-        </div>
-      </div>
-    </template>
-  </div>
+        <template v-for="item in items" :key="item.id">
+            <div class="row mb-2" :class="{ 'is-deleted': item._deleted }">
+                <div class="col">
+                    <FormModalButton :modelValue="item.facet" />
+                    {{ item.facet?.title ?? "" }}
+                </div>
+                <div class="col-auto">
+                    <button type="button" class="btn btn-outline-danger" @click="handleRemove(item)">
+                        <Icon name="delete" />
+                    </button>
+                </div>
+            </div>
+        </template>
+    </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
-import InputSelector from "@/entities/facets/selecting/InputSelector.vue";
-import FormModalButton from "@/entities/facets/details/FormModalButton.vue";
-import type FacetGroup from "../data/Entity";
-import FacetGroupLinkParent from "./FacetParentGroup";
+import { ref, computed } from "vue"
+import InputSelector from "@/entities/facets/selecting/InputSelector.vue"
+import FormModalButton from "@/entities/facets/details/FormModalButton.vue"
+import type FacetGroup from "../data/Entity"
+import FacetGroupLinkParent from "./FacetParentGroup"
 
 const props = defineProps<{
-  facetGroup: FacetGroup;
-}>();
+    facetGroup: FacetGroup
+}>()
 
-const items = defineModel<FacetGroupLinkParent[]>({ default: () => [] });
+const items = defineModel<FacetGroupLinkParent[]>({ default: () => [] })
 const excludedIds = computed(() => [
-  props.facetGroup.id,
-  ...(props.facetGroup.parentFacets?.filter((x) => !x._deleted).map((x) => x.facetId) ?? []),
-  ...(props.facetGroup.childFacets?.filter((x) => !x._deleted).map((x) => x.facetId) ?? []),
-]);
+    props.facetGroup.id,
+    ...(props.facetGroup.parentFacets?.filter((x) => !x._deleted).map((x) => x.facetId) ?? []),
+    ...(props.facetGroup.childFacets?.filter((x) => !x._deleted).map((x) => x.facetId) ?? []),
+])
 
 function handleRemove(item: FacetGroupLinkParent) {
-  item._deleted = !item._deleted;
+    item._deleted = !item._deleted
 }
 
-const newItem = ref<FacetGroupLinkParent>(FacetGroupLinkParent.create({ facetGroupId: props.facetGroup.id }));
+const newItem = ref<FacetGroupLinkParent>(FacetGroupLinkParent.create({ facetGroupId: props.facetGroup.id }))
 function handleAdd(item: FacetGroupLinkParent) {
-  items.value.push(FacetGroupLinkParent.create({ ...item }));
-  newItem.value = FacetGroupLinkParent.create({
-    facetGroupId: props.facetGroup.id,
-  });
+    items.value.push(FacetGroupLinkParent.create({ ...item }))
+    newItem.value = FacetGroupLinkParent.create({
+        facetGroupId: props.facetGroup.id,
+    })
 }
 </script>

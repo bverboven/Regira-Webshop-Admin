@@ -1,1 +1,1 @@
-export { default, default as routerFactory } from "./router";
+export { default, default as routerFactory } from "./router"

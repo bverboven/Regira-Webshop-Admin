@@ -1,33 +1,33 @@
-import type { IConfig } from "@/regira_modules/vue/entities";
-import Entity from "../data/Entity";
+import type { IConfig } from "@/regira_modules/vue/entities"
+import Entity from "../data/Entity"
 
-const api = "/parties";
+const api = "/parties"
 
 const config: IConfig = {
-  id: Entity.name,
-  key: "Party",
-  requires: [],
-  isComplex: true,
+    id: Entity.name,
+    key: "Party",
+    requires: [],
+    isComplex: true,
 
-  routePrefix: "parties",
-  baseQueryParams: {
-    includes: ["Addresses", "ContactData", "Relationships"],
-  },
-  initialQuery: {},
+    routePrefix: "parties",
+    baseQueryParams: {
+        includes: ["Addresses", "ContactData", "Relationships"],
+    },
+    initialQuery: {},
 
-  overviewTitle: "parties",
-  detailsTitle: "party",
-  description: "party.description",
-  icon: "bi bi-people",
+    overviewTitle: "parties",
+    detailsTitle: "party",
+    description: "party.description",
+    icon: "bi bi-people",
 
-  defaultPageSize: 10,
+    defaultPageSize: 10,
 
-  api,
-  detailsUrl: api,
-  listUrl: api,
-  searchUrl: api + "/search",
-  saveUrl: api,
-  deleteUrl: api,
-};
+    api,
+    detailsUrl: api,
+    listUrl: api,
+    searchUrl: api + "/search",
+    saveUrl: api,
+    deleteUrl: api,
+}
 
-export default config;
+export default config

@@ -1,27 +1,27 @@
-import { EntityBase } from "@/regira_modules/vue/entities";
-import type Facet from "@/entities/facets/data/Entity";
+import { EntityBase } from "@/regira_modules/vue/entities"
+import type Facet from "@/entities/facets/data/Entity"
 
 export class ProductFacet extends EntityBase {
-  id: number = 0;
-  productId: number;
-  facetId: number;
+    id: number = 0
+    productId: number
+    facetId: number
 
-  facet?: Facet;
+    facet?: Facet
 
-  _deleted: boolean = false;
+    _deleted: boolean = false
 
-  override get $id(): string | number {
-    return this.id || "new";
-  }
-  override get $title(): string | undefined {
-    return this.facet?.title;
-  }
+    override get $id(): string | number {
+        return this.id || "new"
+    }
+    override get $title(): string | undefined {
+        return this.facet?.title
+    }
 
-  static create(values?: object): ProductFacet {
-    return Object.assign(new ProductFacet(), values || {});
-  }
+    static create(values?: object): ProductFacet {
+        return Object.assign(new ProductFacet(), values || {})
+    }
 }
 
-export const Entity = ProductFacet;
+export const Entity = ProductFacet
 
-export default ProductFacet;
+export default ProductFacet

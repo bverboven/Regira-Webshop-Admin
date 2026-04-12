@@ -1,33 +1,33 @@
-import { trimRight } from "@/regira_modules/utilities/string-utility";
+import { trimRight } from "@/regira_modules/utilities/string-utility"
 declare global {
-  // eslint-disable-next-line no-var
-  var __APP_VERSION__: string;
+    // eslint-disable-next-line no-var
+    var __APP_VERSION__: string
 }
-const { BASE_URL, MODE } = import.meta.env;
+const { BASE_URL, MODE } = import.meta.env
 
-type AppConfig = Record<string, any>;
+type AppConfig = Record<string, any>
 
 const appConfig: AppConfig = {
-  version: __APP_VERSION__,
-  baseUrl: trimRight(BASE_URL, "/"),
-  includeCredentials: true, // for Windows authentication
-  env: MODE,
-};
+    version: __APP_VERSION__,
+    baseUrl: trimRight(BASE_URL, "/"),
+    includeCredentials: true, // for Windows authentication
+    env: MODE,
+}
 
 function getEnvValue(config: any, key: string): any {
-  return typeof config[key][appConfig.env] !== "undefined" ? config[key][appConfig.env] : config[key];
+    return typeof config[key][appConfig.env] !== "undefined" ? config[key][appConfig.env] : config[key]
 }
 
 // add extra config to appConfig
 export function createConfig(config: any): AppConfig {
-  Object.keys(config).forEach((key: string) => {
-    appConfig[key] = getEnvValue(config, key);
-  });
-  return appConfig;
+    Object.keys(config).forEach((key: string) => {
+        appConfig[key] = getEnvValue(config, key)
+    })
+    return appConfig
 }
 // processed config
 export function useConfig(): AppConfig {
-  return appConfig;
+    return appConfig
 }
 
-export default appConfig;
+export default appConfig

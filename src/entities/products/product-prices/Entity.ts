@@ -1,28 +1,28 @@
-import { EntityBase } from "@/regira_modules/vue/entities";
-import type { Product } from "../data/Entity";
+import { EntityBase } from "@/regira_modules/vue/entities"
+import type { Product } from "../data/Entity"
 
 export class ProductPricePeriod extends EntityBase {
-  id: number = 0;
-  objectId: number; // productId
-  price: number;
+    id: number = 0
+    objectId: number // productId
+    price: number
 
-  startDate: Date;
+    startDate: Date
 
-  product?: Product;
-  _deleted: boolean = false;
+    product?: Product
+    _deleted: boolean = false
 
-  override get $id(): string | number {
-    return this.id || "new";
-  }
-  override get $title(): string | undefined {
-    return this.product?.$title;
-  }
+    override get $id(): string | number {
+        return this.id || "new"
+    }
+    override get $title(): string | undefined {
+        return this.product?.$title
+    }
 
-  static create(values?: object): ProductPricePeriod {
-    return Object.assign(new ProductPricePeriod(), values || {});
-  }
+    static create(values?: object): ProductPricePeriod {
+        return Object.assign(new ProductPricePeriod(), values || {})
+    }
 }
 
-export const Entity = ProductPricePeriod;
+export const Entity = ProductPricePeriod
 
-export default ProductPricePeriod;
+export default ProductPricePeriod

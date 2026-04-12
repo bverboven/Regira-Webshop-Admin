@@ -234,6 +234,21 @@
     "fr": "Site web",
     "nl": "Website"
   },
+  "partyRelationshipType": {
+    "en": "Relationship Type",
+    "fr": "Type de relation",
+    "nl": "Relatietype"
+  },
+  "partyRelationshipTypes": {
+    "en": "Relationship Types",
+    "fr": "Types de relations",
+    "nl": "Relatietypes"
+  },
+  "partyRelationshipType.description": {
+    "en": "Relationship types can be used to define the different types of relationships that can exist between parties.",
+    "fr": "Les types de relations peuvent être utilisés pour définir les différents types de relations qui peuvent exister entre les parties.",
+    "nl": "Relatietypes kunnen worden gebruikt om de verschillende soorten relaties te definiëren die kunnen bestaan tussen partijen."
+  },
   "productInformationManagement": {
     "en": "Product Information Management",
     "fr": "Gestion de l'information produit",
@@ -249,6 +264,21 @@
     "fr": "Produit",
     "nl": "Product"
   },
+  "product.assembly": {
+    "en": "Assembly",
+    "fr": "Assemblage",
+    "nl": "Samenstelling"
+  },
+  "product.addComponent": {
+    "en": "Add component",
+    "fr": "Ajouter un composant",
+    "nl": "Component toevoegen"
+  },
+  "product.allComponents": {
+    "en": "All components",
+    "fr": "Tous les composants",
+    "nl": "Alle componenten"
+  },
   "product.component": {
     "en": "Component",
     "fr": "Composant",
@@ -259,10 +289,30 @@
     "fr": "Composants",
     "nl": "Componenten"
   },
+  "product.defaultQuantity": {
+    "en": "Default quantity",
+    "fr": "Quantité par défaut",
+    "nl": "Standaard hoeveelheid"
+  },
   "product.facets": {
     "en": "Facets",
     "fr": "Facettes",
     "nl": "Facetten"
+  },
+  "product.isAssembly": {
+    "en": "Is assembly",
+    "fr": "Est un assemblage",
+    "nl": "Is samenstelling"
+  },
+  "product.isComponent": {
+    "en": "Is component",
+    "fr": "Est un composant",
+    "nl": "Is component"
+  },
+  "product.isRoot": {
+    "en": "Is root",
+    "fr": "Est racine",
+    "nl": "Is root"
   },
   "product.suppliers": {
     "en": "Suppliers",
