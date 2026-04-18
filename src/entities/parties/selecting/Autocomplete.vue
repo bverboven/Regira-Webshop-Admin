@@ -10,7 +10,7 @@
     >
         <template #default="{ item }">
             <div class="row">
-                <div class="col">{{ item.$title }}</div>
+                <div class="col">{{ item.title ?? item.$title }}</div>
                 <div class="col-auto text-muted">{{ getLocation(item) }}</div>
             </div>
         </template>
@@ -67,7 +67,7 @@ const search = (q: string) =>
         pageSize: props.maxResults,
     })
 const idSelector = (item?: Entity) => item?.$id?.toString()
-const displayItemFormatter = (item?: Entity) => item?.$title as string
+const displayItemFormatter = (item?: Entity) => item?.title ?? (item?.$title as string)
 
 const getLocation = computed(() => (item: Entity) => formatCity(item.$address))
 </script>

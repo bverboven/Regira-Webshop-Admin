@@ -1,5 +1,5 @@
 import type Party from "../data/Entity"
-import type { PartyRelationshipType } from "../data/PartyRelationship"
+import type { PartyRelationshipType } from "../party-relations/Entity"
 
 export class TreeItem {
     id: number

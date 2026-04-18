@@ -122,6 +122,19 @@
 
                 <ContactDataOverview v-model="item.contactData" :party="item" />
 
+                <template v-for="relation in item.parentRelationships?.filter((x) => !x._deleted)" :key="relation.id">
+                    <div v-if="relation.contactData?.length" class="" style="opacity: 0.4">
+                        <strong>{{ relation.parent?.title }}</strong>
+                        <div v-for="item in relation.contactData" class="mb-2" :key="item.id">
+                            <div class="input-group">
+                                <ActionButton :item="item" class="btn btn-outline-info" />
+                                <input v-model="item.value" class="form-control" />
+                                <span class="input-group-text" v-if="item.title != null">{{ item.title }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+
                 <AddressesOverview v-model="item.addresses" :party="item" />
 
                 <FormSection :title="$t('description')">
@@ -144,7 +157,21 @@
 
         <Debug
             :modelValue="{
-                item,
+                item: {
+                    ...item,
+                    contactData: item.contactData?.map(({ id, dataType, value }) => `#${id} ${dataType}: ${value}`),
+                    addresses: item.addresses?.map(
+                        ({ id, street, houseNumber, city, countryCode }) =>
+                            `#${id} ${street ?? ''} ${houseNumber ?? ''}, ${city ?? ''} (${countryCode})`
+                    ),
+                    childRelationships: item.childRelationships?.map(
+                        ({ id, child, relationshipType }) => `#${id} ${child?.title} (${relationshipType?.title})`
+                    ),
+                    parentRelationships: item.parentRelationships?.map(({ id, parent, relationshipType, contactData }) => ({
+                        parent: `#${id} ${parent?.title} (${relationshipType?.title})`,
+                        contactData: contactData?.map(({ id, dataType, value }) => `#${id} ${dataType}: ${value}`),
+                    })),
+                },
             }"
         />
     </form>
@@ -159,15 +186,16 @@ import { FormButtonsRow } from "@/components/input"
 import { useForm, type FormEmits, formDefaults } from "@/regira_modules/vue/entities"
 import { config as productConfig } from "@/entities/products"
 import { config as partyRelationshipTypeConfig } from "@/entities/party-relationship-types"
+import config from "../config/config"
+import Entity from "../data/Entity"
+import PartyTypes from "../data/PartyTypes"
+import useEntityStore from "../data/store"
+import ActionButton from "../party-contact-data/ActionButton.vue"
 import { Overview as AddressesOverview } from "../party-addresses"
 import { Overview as ContactDataOverview } from "../party-contact-data"
 import { Overview as ProductsOverview } from "../party-products"
 import { Overview as RelationshipsOverview } from "../party-relations"
 import { Overview as TreeOverview } from "../tree"
-import config from "../config/config"
-import Entity from "../data/Entity"
-import PartyTypes from "../data/PartyTypes"
-import useEntityStore from "../data/store"
 
 interface Emits extends /* @vue-ignore */ FormEmits<Entity> {}
 const emit = defineEmits<Emits>()

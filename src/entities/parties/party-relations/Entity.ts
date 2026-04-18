@@ -1,6 +1,7 @@
 import { EntityBase } from "@/regira_modules/vue/entities"
-import type { Party } from "./Entity"
 import type PartyRelationshipType from "@/entities/party-relationship-types/data/Entity"
+import type PartyContactData from "../party-contact-data/Entity"
+import type { Party } from "../data/Entity"
 
 export { default as PartyRelationshipType } from "@/entities/party-relationship-types/data/Entity"
 
@@ -18,6 +19,7 @@ export class PartyRelationship extends EntityBase {
     parent?: Party
     child?: Party
     relationshipType?: PartyRelationshipType
+    contactData?: PartyContactData[]
 
     _deleted: boolean = false
 
@@ -32,3 +34,7 @@ export class PartyRelationship extends EntityBase {
         return Object.assign(new PartyRelationship(), values || {})
     }
 }
+
+export const Entity = PartyRelationship
+
+export default PartyRelationship
