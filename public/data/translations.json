@@ -20,9 +20,9 @@
         "nl": "huidig wachtwoord"
     },
     "auth.demoInfoMessage": {
-        "en": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "fr": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "nl": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        "en": "In the demo-version you can select a user or fill in the credentials manually",
+        "fr": "Dans la version de démonstration, vous pouvez sélectionner un utilisateur ou remplir les informations d'identification manuellement",
+        "nl": "In de demo-versie kun je een gebruiker selecteren of de inloggegevens handmatig invullen"
     },
     "auth.fillInUsernameMsg": {
         "en": "Fill in username to request a password reset.",

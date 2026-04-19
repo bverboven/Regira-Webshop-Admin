@@ -8,6 +8,7 @@
                 <PartyModalButton :modelValue="nodeItem" class="btn btn-default border-0 p-1 me-1" :disabled="isSelected" />
             </div>
             <div class="col text-truncate">
+                <small v-if="relationshipType" class="text-muted me-1">{{ relationshipType.title }}</small>
                 <span
                     draggable="true"
                     class="d-inline-block p-1 cursor move"
@@ -17,7 +18,6 @@
                 >
                     {{ nodeItem?.$title }}
                 </span>
-                <small v-if="relationshipType" class="text-muted ms-1">{{ relationshipType.title }}</small>
             </div>
             <div class="col-auto">
                 <SelectorModalButton

@@ -3,7 +3,7 @@
         <div class="row mb-2" v-if="parent != null">
             <div class="col mb-2">
                 <div class="form-control fw-bold"><FormModalButton :modelValue="parent" class="p-1" /> {{ parent.$title }}</div>
-                <FormLabel label="RelationshipType giver" />
+                <FormLabel :label="$t('party.parent')" />
             </div>
         </div>
         <div class="row mb-2">

@@ -4,6 +4,7 @@
 
 <script setup lang="ts">
 import { computed } from "vue"
+import config from "../config/config"
 import Party from "../data/Entity"
 import PartyTypes from "../data/PartyTypes"
 
@@ -17,7 +18,7 @@ const iconName = computed(() => {
     } else if (props.item.partyType === PartyTypes.Person) {
         return "person"
     } else {
-        return Party.name
+        return config.key
     }
 })
 </script>

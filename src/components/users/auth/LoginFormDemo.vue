@@ -1,6 +1,6 @@
 <template>
-    <form @submit.prevent="handleSubmit" ref="loginForm" :style="{ 'min-height': minHeight }">
-        <!-- <p class="text-info">{{ $t("auth.demoInfoMessage") }}</p> -->
+    <form @submit.prevent="handleSubmit" ref="loginForm">
+        <p class="text-info">{{ $t("auth.demoInfoMessage") }}</p>
         <div class="mb-3 position-relative" v-if="failed">
             <div class="bg-danger border rounded text-light p-2">
                 {{ $t("auth.signInErrorMsg") }}
@@ -15,6 +15,7 @@
                     <template v-if="demoUsers?.length">
                         <button
                             class="btn btn-outline-secondary dropdown-toggle"
+                            :class="{ show: showUsersList }"
                             type="button"
                             data-bs-toggle="dropdown"
                             aria-expanded="false"
@@ -77,7 +78,6 @@ const { username, password, signingIn, failed, isLockedOut, handleSubmit, handle
 const { baseUrl } = useConfig()
 const showUsersList = ref(false)
 const demoUsers = ref<Array<IDemoUser>>()
-const minHeight = computed(() => (showUsersList.value ? "15rem" : "10rem"))
 const pimUsers = computed<Array<IDemoUser>>(() => demoUsers.value || [])
 
 // auth

@@ -1,7 +1,12 @@
 [
     {
-        "username": "xxx",
+        "username": "demo@regira.com",
+        "password": "demo",
+        "title": "Demo user"
+    },
+    {
+        "username": "xxx@regira.com",
         "password": "xxx",
-        "title": "Xxx"
+        "title": "XXX user"
     }
 ]

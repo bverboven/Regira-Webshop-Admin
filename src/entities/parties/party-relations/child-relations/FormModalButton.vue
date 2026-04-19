@@ -12,7 +12,7 @@
                 @cancel="handleCancel"
                 @submit="handleSubmit"
             >
-                <Form v-model="item" :itemDefaults="itemDefaults" :role-giver="roleGiver" class="pt-2" />
+                <Form v-model="item" :itemDefaults="itemDefaults" :parent="parent" class="pt-2" />
             </MyModal>
         </Teleport>
     </button>
@@ -32,7 +32,7 @@ const emit = defineEmits<{
 const props = defineProps<{
     modelValue?: Entity
     itemDefaults?: Partial<Entity>
-    roleGiver?: Party
+    parent?: Party
     modalTitle?: string
     closeOnSave?: boolean
 }>()

@@ -48,25 +48,27 @@ import { distinctBy } from "@/regira_modules/utilities/array-utility"
 import { LoadingContainer } from "@/regira_modules/vue/ui"
 import { get } from "@/regira_modules/vue/ioc"
 import { TreeList, TreeNode } from "@/regira_modules/treelist"
-import { Entity, type EntityService, useEntityStore } from "../../parties"
+import { useEntityStore as useRelationshipTypeStore } from "@/entities/party-relationship-types"
+import { Entity as Party, type EntityService, useEntityStore } from "../../parties"
 import { PartyRelationship } from "../party-relations/Entity"
+import { FamilyItem } from "./FamilyItem"
+import { TreeItem, ChildItem } from "./TreeItem"
 import { toTree } from "./functions"
-import { FamilyItem } from "."
-import TreeItem, { ChildItem } from "./TreeItem"
 import TreeView from "./TreeView.vue"
 
 const props = defineProps<{
-    item: Entity
+    item: Party
 }>()
 
 const isLoading = ref(false)
 const hasNoItems = ref<boolean>()
 const { service } = useEntityStore()
+const { service: relationTypeService } = useRelationshipTypeStore()
 
 const reverseTree = ref<boolean>()
 const skinnyTree = ref<TreeList<TreeItem>>()
 const tree = ref<TreeList<TreeItem>>()
-const entityService = get<EntityService>(Entity.name)!
+const partyService = get<EntityService>(Party.name)!
 const family = ref<Array<FamilyItem>>()
 const selectedNodes = computed(() => tree.value?.filter((n) => n.value?.id == props.item?.id))
 
@@ -120,7 +122,7 @@ async function handleMove({ child, parent }: { child: TreeNode<TreeItem>; parent
     }
 }
 
-async function linkItemAsChild(child?: Entity, parent?: Entity) {
+async function linkItemAsChild(child?: Party, parent?: Party) {
     if (!child?.id) {
         return
     }
@@ -157,7 +159,7 @@ function toggleNode(node: TreeNode<TreeItem>) {
 
 async function load() {
     isLoading.value = true
-    const familyItems = await entityService.getFamily([props.item.id])
+    const familyItems = await partyService.getFamily([props.item.id])
     family.value = distinctBy(familyItems, (x: FamilyItem) => `${x.childId}_${x.parentId || 0}`)
     isLoading.value = false
 }
@@ -183,9 +185,13 @@ watchEffect(async () => {
             const { service: partyService } = useEntityStore()
 
             const parties = await partyService.list({ ids: partyIds, pageSize: 0 })
+            const relationTypes = await relationTypeService.list({ pageSize: 0 })
 
             skinnyTree.value.forEach((node) => {
+                const childItemNode = node.value as ChildItem
                 node.value.item = parties.find((x) => x.id == node.value.id)
+                if (childItemNode.relationshipTypeId != null)
+                    childItemNode.relationshipType = relationTypes.find((rt) => rt.id == childItemNode.relationshipTypeId)
             })
             tree.value = skinnyTree.value
             expandDefault()

@@ -11,7 +11,7 @@
                 <FormModalButton
                     v-model="item"
                     :child="child"
-                    :modalTitle="`Edit relation for ${child?.$title}`"
+                    :modalTitle="$t('party.child', { name: child?.$title })"
                     class="btn btn-default"
                     ><Icon name="edit"
                 /></FormModalButton>
@@ -53,6 +53,7 @@ import type Party from "../../data/Entity"
 import type Entity from "../Entity"
 import PartyButton from "../../details/FormModalButton.vue"
 import FormModalButton from "./FormModalButton.vue"
+
 const props = defineProps<{
     child: Party
 }>()

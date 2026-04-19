@@ -14,17 +14,17 @@
             </div>
         </div>
 
-        <TabContainer :tabs="['all', 'persons', 'units']" :active="orgContacts.length && !personContacts.length ? 'units' : undefined">
+        <TabContainer :tabs="tabs">
             <template #all>
                 <List v-if="items?.length" v-model="items" :parent="parent" />
                 <p v-else class="italic-muted">{{ $t("noItems") }}</p>
             </template>
             <template #persons>
-                <List v-if="personContacts?.length" v-model="personContacts" :parent="parent" />
+                <List v-if="personRelations?.length" v-model="personRelations" :parent="parent" />
                 <p v-else class="italic-muted">{{ $t("noItems") }}</p>
             </template>
             <template #units>
-                <List v-if="orgContacts?.length" v-model="orgContacts" :parent="parent" />
+                <List v-if="orgRelations?.length" v-model="orgRelations" :parent="parent" />
                 <p v-else class="italic-muted">{{ $t("noItems") }}</p>
             </template>
         </TabContainer>
@@ -33,8 +33,8 @@
 
 <script setup lang="ts">
 import { ref, computed } from "vue"
-import { TabContainer } from "@/regira_modules/vue/ui"
-import useOwnedCollection from "@/regira_modules/vue/entities/form/ownedCollections"
+import { TabContainer, Tab } from "@/regira_modules/vue/ui"
+import { useLang } from "@/regira_modules/vue/lang"
 import Entity from "../Entity"
 import PartyTypes from "../../data/PartyTypes"
 import type Party from "../../data/Entity"
@@ -43,20 +43,19 @@ import PartyInputSelector from "../../selecting/InputSelector.vue"
 import List from "./List.vue"
 
 const emit = defineEmits<{
-    (e: "update:modelValue", args: Array<Entity>): void
     (e: "sort", args: any): void
 }>()
-const props = withDefaults(
-    defineProps<{
-        modelValue?: Array<Entity>
-        parent: Party
-    }>(),
-    {
-        modelValue: () => [],
-    }
-)
+const props = defineProps<{
+    parent: Party
+}>()
 
-const excludedIds = computed(() => [props.parent.id, ...(items.value?.filter((x) => !x._deleted).map((x) => x.childId) ?? [])])
+const { translate } = useLang()
+const tabs = computed(() => [
+    new Tab(translate("common.all"), "all"),
+    new Tab(translate("party.people"), "persons"),
+    new Tab(translate("party.units"), "units"),
+])
+const items = defineModel<Array<Entity>>({ default: () => [] })
 
 const newItem = ref<Entity>(Entity.create({ parentId: props.parent.id }))
 function handleAdd(item: Entity) {
@@ -65,13 +64,13 @@ function handleAdd(item: Entity) {
     newItem.value = Entity.create({ parentId: props.parent.id })
 }
 
-const { items, handleSave } = useOwnedCollection({ props, emit })
-const personContacts = computed({
-    get: () => items.value.filter((x) => x.child?.partyType == PartyTypes.Person),
-    set: (value) => emit("update:modelValue", [...value, ...orgContacts.value]),
+const excludedIds = computed(() => [props.parent.id, ...(items.value?.filter((x) => !x._deleted).map((x) => x.childId) ?? [])])
+const personRelations = computed({
+    get: () => items.value.filter((x) => x.parent?.partyType == PartyTypes.Person),
+    set: (value) => (items.value = [...value, ...orgRelations.value]),
 })
-const orgContacts = computed({
-    get: () => items.value.filter((x) => x.child?.partyType == PartyTypes.Organization),
-    set: (value) => emit("update:modelValue", [...personContacts.value, ...value]),
+const orgRelations = computed({
+    get: () => items.value.filter((x) => x.parent?.partyType == PartyTypes.Organization),
+    set: (value) => (items.value = [...personRelations.value, ...value]),
 })
 </script>

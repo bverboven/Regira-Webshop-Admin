@@ -18,7 +18,7 @@ const config: IConfig = {
     overviewTitle: "parties",
     detailsTitle: "party",
     description: "party.description",
-    icon: "bi bi-people",
+    icon: "bi bi-person-vcard",
 
     defaultPageSize: 10,
 

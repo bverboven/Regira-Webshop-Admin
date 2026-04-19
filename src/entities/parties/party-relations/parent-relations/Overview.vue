@@ -14,7 +14,7 @@
             </div>
         </div>
 
-        <TabContainer :tabs="['all', 'persons', 'units']">
+        <TabContainer :tabs="tabs">
             <template #all>
                 <List v-if="items?.length" v-model="items" :child="child" />
                 <p v-else class="italic-muted">{{ $t("noItems") }}</p>
@@ -33,7 +33,8 @@
 
 <script setup lang="ts">
 import { ref, computed } from "vue"
-import { TabContainer } from "@/regira_modules/vue/ui"
+import { TabContainer, Tab } from "@/regira_modules/vue/ui"
+import { useLang } from "@/regira_modules/vue/lang"
 import Entity from "../Entity"
 import PartyTypes from "../../data/PartyTypes"
 import type Party from "../../data/Entity"
@@ -48,6 +49,12 @@ const props = defineProps<{
     child: Party
 }>()
 
+const { translate } = useLang()
+const tabs = computed(() => [
+    new Tab(translate("common.all"), "all"),
+    new Tab(translate("party.people"), "persons"),
+    new Tab(translate("party.units"), "units"),
+])
 const items = defineModel<Array<Entity>>({ default: () => [] })
 
 const newItem = ref<Entity>(Entity.create({ childId: props.child.id }))

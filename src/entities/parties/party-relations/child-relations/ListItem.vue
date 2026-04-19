@@ -8,10 +8,14 @@
                 <span class="fst-italic">{{ item.relationshipType?.title }}</span>
             </div>
             <div class="col-auto">
-                <FormModalButton v-model="item" :parent="parent" :modalTitle="`Edit member for ${parent?.$title}`" class="btn btn-default"
+                <FormModalButton
+                    v-model="item"
+                    :parent="parent"
+                    :modalTitle="$t('party.parent', { name: parent?.$title })"
+                    class="btn btn-default"
                     ><Icon name="edit"
                 /></FormModalButton>
-                <button v-if="item.id != 0" type="button" class="btn btn-default m-1" @click="item._deleted = !item._deleted">
+                <button type="button" class="btn btn-default m-1" @click="item._deleted = !item._deleted">
                     <Icon name="delete" />
                 </button>
             </div>

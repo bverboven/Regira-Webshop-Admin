@@ -1,28 +1,63 @@
 {
-    "pim": {
-        "en": "PIM",
-        "fr": "GIP",
-        "nl": "PIM"
+    "address.city": {
+        "en": "City",
+        "fr": "Ville",
+        "nl": "Stad"
     },
-    "pimManager": {
-        "en": "PIM Manager",
-        "fr": "Gestionnaire PIM",
-        "nl": "PIM Manager"
+    "address.houseNumber": {
+        "en": "No.",
+        "fr": "N°",
+        "nl": "Nr."
     },
-    "assembly": {
-        "en": "Assembly",
-        "fr": "Assemblage",
-        "nl": "Samenstelling"
+    "address.postalCode": {
+        "en": "Postal code",
+        "fr": "Code postal",
+        "nl": "Postcode"
+    },
+    "address.street": {
+        "en": "Street",
+        "fr": "Rue",
+        "nl": "Straat"
     },
     "assemblies": {
         "en": "Assemblies",
         "fr": "Assemblages",
         "nl": "Samenstellingen"
     },
+    "assembly": {
+        "en": "Assembly",
+        "fr": "Assemblage",
+        "nl": "Samenstelling"
+    },
     "catalog": {
         "en": "Catalog",
         "fr": "Catalogue",
         "nl": "Catalogus"
+    },
+    "contactData.email": {
+        "en": "Email",
+        "fr": "E-mail",
+        "nl": "E-mail"
+    },
+    "contactData.other": {
+        "en": "Other",
+        "fr": "Autre",
+        "nl": "Overige"
+    },
+    "contactData.phone": {
+        "en": "Phone",
+        "fr": "Téléphone",
+        "nl": "Telefoon"
+    },
+    "contactData.value": {
+        "en": "Value",
+        "fr": "Valeur",
+        "nl": "Waarde"
+    },
+    "contactData.website": {
+        "en": "Website",
+        "fr": "Site web",
+        "nl": "Website"
     },
     "facet": {
         "en": "Facet",
@@ -124,15 +159,15 @@
         "fr": "Facettes",
         "nl": "Facetten"
     },
-    "location": {
-        "en": "Location",
-        "fr": "Emplacement",
-        "nl": "Locatie"
-    },
     "isRoot": {
         "en": "Top-level",
         "fr": "Premier niveau",
         "nl": "Top-level"
+    },
+    "location": {
+        "en": "Location",
+        "fr": "Emplacement",
+        "nl": "Locatie"
     },
     "parties": {
         "en": "Parties",
@@ -159,6 +194,16 @@
         "fr": "Les parties représentent les différentes parties prenantes.",
         "nl": "Partijen vertegenwoordigen de verschillende belanghebbenden."
     },
+    "party.familyName": {
+        "en": "Family Name",
+        "fr": "Nom de famille",
+        "nl": "Achternaam"
+    },
+    "party.givenName": {
+        "en": "Given Name",
+        "fr": "Prénom",
+        "nl": "Voornaam"
+    },
     "party.isChild": {
         "en": "Is child",
         "fr": "Est enfant",
@@ -173,6 +218,11 @@
         "en": "Legal entity",
         "fr": "Entité légale",
         "nl": "Rechtspersoon"
+    },
+    "party.middleName": {
+        "en": "Middle Name",
+        "fr": "Deuxième prénom",
+        "nl": "Tussennaam"
     },
     "party.name": {
         "en": "Name",
@@ -199,6 +249,11 @@
         "fr": "Type",
         "nl": "Type"
     },
+    "party.people": {
+        "en": "People",
+        "fr": "Personnes",
+        "nl": "Personen"
+    },
     "party.person": {
         "en": "Person",
         "fr": "Personne",
@@ -214,100 +269,45 @@
         "fr": "Salutation",
         "nl": "Aanhef"
     },
-    "party.givenName": {
-        "en": "Given Name",
-        "fr": "Prénom",
-        "nl": "Voornaam"
+    "party.unit": {
+        "en": "Unit",
+        "fr": "Unité",
+        "nl": "Unit"
     },
-    "party.middleName": {
-        "en": "Middle Name",
-        "fr": "Deuxième prénom",
-        "nl": "Tussennaam"
-    },
-    "party.familyName": {
-        "en": "Family Name",
-        "fr": "Nom de famille",
-        "nl": "Achternaam"
-    },
-    "party.address.street": {
-        "en": "Street",
-        "fr": "Rue",
-        "nl": "Straat"
-    },
-    "party.address.houseNumber": {
-        "en": "No.",
-        "fr": "N°",
-        "nl": "Nr."
-    },
-    "party.address.postalCode": {
-        "en": "Postal code",
-        "fr": "Code postal",
-        "nl": "Postcode"
-    },
-    "party.address.city": {
-        "en": "City",
-        "fr": "Ville",
-        "nl": "Stad"
-    },
-    "party.contactData.value": {
-        "en": "Value",
-        "fr": "Valeur",
-        "nl": "Waarde"
-    },
-    "party.contactData.other": {
-        "en": "Other",
-        "fr": "Autre",
-        "nl": "Overige"
-    },
-    "party.contactData.phone": {
-        "en": "Phone",
-        "fr": "Téléphone",
-        "nl": "Telefoon"
-    },
-    "party.contactData.email": {
-        "en": "Email",
-        "fr": "E-mail",
-        "nl": "E-mail"
-    },
-    "party.contactData.website": {
-        "en": "Website",
-        "fr": "Site web",
-        "nl": "Website"
+    "party.units": {
+        "en": "Units",
+        "fr": "Unités",
+        "nl": "Units"
     },
     "partyRelationshipType": {
         "en": "Relationship Type",
         "fr": "Type de relation",
         "nl": "Relatietype"
     },
-    "partyRelationshipTypes": {
-        "en": "Relationship Types",
-        "fr": "Types de relations",
-        "nl": "Relatietypes"
-    },
     "partyRelationshipType.description": {
         "en": "Relationship types can be used to define the different types of relationships that can exist between parties.",
         "fr": "Les types de relations peuvent être utilisés pour définir les différents types de relations qui peuvent exister entre les parties.",
         "nl": "Relatietypes kunnen worden gebruikt om de verschillende soorten relaties te definiëren die kunnen bestaan tussen partijen."
     },
-    "productInformationManagement": {
-        "en": "Product Information Management",
-        "fr": "Gestion de l'information produit",
-        "nl": "Product Informatie Management"
+    "partyRelationshipTypes": {
+        "en": "Relationship Types",
+        "fr": "Types de relations",
+        "nl": "Relatietypes"
+    },
+    "pim": {
+        "en": "PIM",
+        "fr": "GIP",
+        "nl": "PIM"
+    },
+    "pimManager": {
+        "en": "PIM Manager",
+        "fr": "Gestionnaire PIM",
+        "nl": "PIM Manager"
     },
     "product": {
         "en": "Product",
         "fr": "Produit",
         "nl": "Product"
-    },
-    "product.allowAdditions": {
-        "en": "Allow additions",
-        "fr": "Autoriser les ajouts",
-        "nl": "Toevoegingen toestaan"
-    },
-    "product.assembly": {
-        "en": "Assembly",
-        "fr": "Assemblage",
-        "nl": "Samenstelling"
     },
     "product.addComponent": {
         "en": "Add component",
@@ -339,6 +339,16 @@
         "fr": "Toutes les facettes",
         "nl": "Alle facetten"
     },
+    "product.allowAdditions": {
+        "en": "Allow additions",
+        "fr": "Autoriser les ajouts",
+        "nl": "Toevoegingen toestaan"
+    },
+    "product.assembly": {
+        "en": "Assembly",
+        "fr": "Assemblage",
+        "nl": "Samenstelling"
+    },
     "product.component": {
         "en": "Component",
         "fr": "Composant",
@@ -353,6 +363,11 @@
         "en": "Default quantity",
         "fr": "Quantité par défaut",
         "nl": "Standaard hoeveelheid"
+    },
+    "product.description": {
+        "en": "Manage the products that are available.",
+        "fr": "Gérez les produits disponibles.",
+        "nl": "Beheer de producten die beschikbaar zijn."
     },
     "product.excludedComponents": {
         "en": "Exclude components",
@@ -394,6 +409,11 @@
         "fr": "Est racine",
         "nl": "Is root"
     },
+    "product.prices": {
+        "en": "Prices",
+        "fr": "Prix",
+        "nl": "Prijzen"
+    },
     "product.suppliers": {
         "en": "Suppliers",
         "fr": "Fournisseurs",
@@ -404,20 +424,15 @@
         "fr": "Pas de composants, l'arbre n'est pas disponible",
         "nl": "Geen componenten, boom is niet beschikbaar"
     },
+    "productInformationManagement": {
+        "en": "Product Information Management",
+        "fr": "Gestion de l'information produit",
+        "nl": "Product Informatie Management"
+    },
     "products": {
         "en": "Products",
         "fr": "Produits",
         "nl": "Producten"
-    },
-    "product.prices": {
-        "en": "Prices",
-        "fr": "Prix",
-        "nl": "Prijzen"
-    },
-    "product.description": {
-        "en": "Manage the products that are available.",
-        "fr": "Gérez les produits disponibles.",
-        "nl": "Beheer de producten die beschikbaar zijn."
     },
     "stakeholders": {
         "en": "Stakeholders",
@@ -434,14 +449,14 @@
         "fr": "Type d'unité",
         "nl": "Eenheidstype"
     },
-    "unitTypes": {
-        "en": "Unit Types",
-        "fr": "Types d'unités",
-        "nl": "Eenheidstypen"
-    },
     "unitType.description": {
         "en": "Manage the different unit types that can be used for prices from products.",
         "fr": "Gérez les différents types d'unités qui peuvent être utilisés pour les prix des produits.",
         "nl": "Beheer de verschillende eenheidstypen die kunnen worden gebruikt voor prijzen van producten."
+    },
+    "unitTypes": {
+        "en": "Unit Types",
+        "fr": "Types d'unités",
+        "nl": "Eenheidstypen"
     }
 }
