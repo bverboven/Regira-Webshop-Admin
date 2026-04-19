@@ -53,23 +53,17 @@ import { distinctBy } from "@/regira_modules/utilities/array-utility"
 import { LoadingContainer } from "@/regira_modules/vue/ui"
 import { get } from "@/regira_modules/vue/ioc"
 import { TreeList, TreeNode } from "@/regira_modules/treelist"
-import { Entity, type EntityService, useEntityStore } from "../../facets"
-import { Entity as FacetGroupEntity, useEntityStore as useFacetGroupStore } from "../../facet-groups"
+import { config, Entity, type EntityService, useEntityStore } from "../../facets"
+import { config as facetGroupConfig, useEntityStore as useFacetGroupStore } from "../../facet-groups"
 import { toTree } from "./functions"
 import { FamilyItem } from "."
 import TreeItem from "./TreeItem"
 import TreeView from "./TreeView.vue"
 import { FacetParent } from "../facet-related-facets"
 
-const props = withDefaults(
-    defineProps<{
-        item: Entity
-        selectedType?: string
-    }>(),
-    {
-        selectedType: Entity.name,
-    }
-)
+const props = defineProps<{
+    item: Entity
+}>()
 
 const isLoading = ref(false)
 const hasNoItems = ref<boolean>()
@@ -80,7 +74,7 @@ const skinnyTree = ref<TreeList<TreeItem>>()
 const tree = ref<TreeList<TreeItem>>()
 const entityService = get<EntityService>(Entity.name)!
 const family = ref<Array<FamilyItem>>()
-const selectedNodes = computed(() => tree.value?.filter((n) => n.value?.id == props.item?.id && n.value.type === props.selectedType))
+const selectedNodes = computed(() => tree.value?.filter((n) => n.value?.id == props.item?.id && n.value?.type == config.key))
 
 const areAllExpanded = computed(() => tree.value?.getOffspring(tree.value.roots).every((n) => n.value.isExpanded))
 function expandAll() {
@@ -113,7 +107,7 @@ async function handleMove({ child, parent }: { child: TreeNode<TreeItem>; parent
             // remove previous parent
             details.parentEntities = details.parentEntities?.filter((x) => x.parentId != child.parent?.value.id)
         }
-        if (!details.parentEntities?.some((p) => p.parentId == props.item.id)) {
+        if (!details.parentEntities?.some((p) => p.parentId == props.item?.id)) {
             details.parentEntities?.push(FacetParent.create({ childId: child.value.id, parentId: parent.value.id }))
         }
         const { saved } = await service.save(details)
@@ -193,11 +187,11 @@ watchEffect(async () => {
     if (skinnyTree.value) {
         const facetIds = skinnyTree.value
             .getValues()
-            .filter((x) => x.type === Entity.name)
+            .filter((x) => x.type === config.key)
             .map((x) => x.id)
         const facetGroupIds = skinnyTree.value
             .getValues()
-            .filter((x) => x.type === FacetGroupEntity.name)
+            .filter((x) => x.type === facetGroupConfig.key)
             .map((x) => x.id)
 
         if (facetIds.length > 0 || facetGroupIds.length > 0) {
@@ -211,7 +205,7 @@ watchEffect(async () => {
             ])
 
             skinnyTree.value.forEach((node) => {
-                if (node.value.type === Entity.name) {
+                if (node.value.type === config.key) {
                     node.value.item = facets.find((x) => x.id == node.value.id)
                 } else {
                     node.value.item = facetGroups.find((x) => x.id == node.value.id)

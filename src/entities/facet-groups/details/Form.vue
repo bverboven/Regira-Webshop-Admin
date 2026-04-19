@@ -34,35 +34,39 @@
 
         <TabContainer :tabs="tabs" :active="initialTab" :use-route-nav="!isPopup">
             <template #form>
-                <FormSection :title="$t(config.detailsTitle || '')" :readonly="readonly">
-                    <div class="row">
-                        <div class="col mb-2">
-                            <div class="input-group">
-                                <div class="input-group-text">
-                                    <Icon name="code" />
+                <div class="row">
+                    <div class="col">
+                        <FormSection :title="$t(config.detailsTitle || '')" :readonly="readonly">
+                            <div class="row">
+                                <div class="col mb-2">
+                                    <div class="input-group">
+                                        <div class="input-group-text">
+                                            <Icon name="code" />
+                                        </div>
+                                        <input v-model="item.code" maxlength="32" :readonly="readonly" class="form-control" />
+                                    </div>
+                                    <FormLabel :label="$t('code')" />
                                 </div>
-                                <input v-model="item.code" maxlength="32" :readonly="readonly" class="form-control" />
                             </div>
-                            <FormLabel :label="$t('code')" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col mb-2">
-                            <div class="input-group">
-                                <div class="input-group-text">
-                                    <Icon name="title" />
+                            <div class="row">
+                                <div class="col mb-2">
+                                    <div class="input-group">
+                                        <div class="input-group-text">
+                                            <Icon name="title" />
+                                        </div>
+                                        <input v-model="item.title" maxlength="64" :readonly="readonly" class="form-control" />
+                                    </div>
+                                    <FormLabel :label="$t('name')" />
                                 </div>
-                                <input v-model="item.title" maxlength="64" :readonly="readonly" class="form-control" />
                             </div>
-                            <FormLabel :label="$t('name')" />
-                        </div>
+                            <div class="row">
+                                <div class="col mb-2">
+                                    <DescriptionInput v-model="item.description" :label="$t('description')" :readonly="readonly" />
+                                </div>
+                            </div>
+                        </FormSection>
                     </div>
-                    <div class="row">
-                        <div class="col mb-2">
-                            <DescriptionInput v-model="item.description" :label="$t('description')" :readonly="readonly" />
-                        </div>
-                    </div>
-                </FormSection>
+                </div>
             </template>
 
             <template #facets>
@@ -72,10 +76,6 @@
                     </div>
                 </div>
                 <RelatedOverview v-model="item" />
-            </template>
-
-            <template #tree>
-                <TreeOverview :item="item" />
             </template>
         </TabContainer>
 
@@ -95,7 +95,6 @@ import { Feedback, TabContainer, Tab } from "@/regira_modules/vue/ui"
 import { useForm, type FormEmits, formDefaults } from "@/regira_modules/vue/entities"
 import { FormButtonsRow } from "@/components/input"
 import { Overview as RelatedOverview } from "../facet-group-links"
-import TreeOverview from "../tree/Overview.vue"
 import config from "../config/config"
 import Entity from "../data/Entity"
 import useEntityStore from "../data/store"
@@ -133,10 +132,6 @@ const tabs = computed(() =>
         Tab.create("facets", {
             icon: "component",
             title: translate("facetGroup.facets"),
-        }),
-        Tab.create("tree", {
-            icon: "tree",
-            title: translate("tree"),
         }),
     ].filter((tab) => tab)
 )

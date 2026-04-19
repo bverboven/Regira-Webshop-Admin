@@ -20,10 +20,15 @@ export class EntityService extends EntityServiceBase<Entity> {
         return item instanceof Entity ? item : Object.assign(this.createInstance(Entity as new () => Entity), item || {})
     }
 
-    async getFamily(ids: Array<number> | number): Promise<Array<FamilyItem>> {
-        const queryString = (Array.isArray(ids) ? ids : [ids]).map((id) => `ids=${id}`).join("&")
+    async getFamily(ids?: Array<number> | number, groupIds?: Array<number> | number, level?: number): Promise<Array<FamilyItem>> {
+        const queryString = (Array.isArray(ids) ? ids : [ids])
+            .map((id) => `ids=${id}`)
+            .concat(groupIds ? (Array.isArray(groupIds) ? groupIds : [groupIds]).map((id) => `groupIds=${id}`) : [])
+            .join("&")
         const fetchUrl = `${this.config.api}/family?${queryString}`
-        const { data: result } = await this.axios.get<ListResult<FamilyItem>>(fetchUrl).then((response: AxiosResponse<ListResult<FamilyItem>>) => response)
+        const { data: result } = await this.axios
+            .get<ListResult<FamilyItem>>(fetchUrl)
+            .then((response: AxiosResponse<ListResult<FamilyItem>>) => response)
         return (result.items || []).map((item) => Object.assign(new FamilyItem(), item))
     }
 }
