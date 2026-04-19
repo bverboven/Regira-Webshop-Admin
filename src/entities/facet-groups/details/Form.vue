@@ -73,6 +73,10 @@
                 </div>
                 <RelatedOverview v-model="item" />
             </template>
+
+            <template #tree>
+                <TreeOverview :item="item" />
+            </template>
         </TabContainer>
 
         <Debug
@@ -91,6 +95,7 @@ import { Feedback, TabContainer, Tab } from "@/regira_modules/vue/ui"
 import { useForm, type FormEmits, formDefaults } from "@/regira_modules/vue/entities"
 import { FormButtonsRow } from "@/components/input"
 import { Overview as RelatedOverview } from "../facet-group-links"
+import TreeOverview from "../tree/Overview.vue"
 import config from "../config/config"
 import Entity from "../data/Entity"
 import useEntityStore from "../data/store"
@@ -128,6 +133,10 @@ const tabs = computed(() =>
         Tab.create("facets", {
             icon: "component",
             title: translate("facetGroup.facets"),
+        }),
+        Tab.create("tree", {
+            icon: "tree",
+            title: translate("tree"),
         }),
     ].filter((tab) => tab)
 )
