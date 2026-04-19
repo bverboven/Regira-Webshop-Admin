@@ -61,9 +61,15 @@ import TreeItem from "./TreeItem"
 import TreeView from "./TreeView.vue"
 import { FacetParent } from "../facet-related-facets"
 
-const props = defineProps<{
-    item: Entity
-}>()
+const props = withDefaults(
+    defineProps<{
+        item: Entity
+        selectedType?: string
+    }>(),
+    {
+        selectedType: Entity.name,
+    }
+)
 
 const isLoading = ref(false)
 const hasNoItems = ref<boolean>()
@@ -74,7 +80,7 @@ const skinnyTree = ref<TreeList<TreeItem>>()
 const tree = ref<TreeList<TreeItem>>()
 const entityService = get<EntityService>(Entity.name)!
 const family = ref<Array<FamilyItem>>()
-const selectedNodes = computed(() => tree.value?.filter((n) => n.value?.id == props.item?.id && n.value.type === Entity.name))
+const selectedNodes = computed(() => tree.value?.filter((n) => n.value?.id == props.item?.id && n.value.type === props.selectedType))
 
 const areAllExpanded = computed(() => tree.value?.getOffspring(tree.value.roots).every((n) => n.value.isExpanded))
 function expandAll() {
