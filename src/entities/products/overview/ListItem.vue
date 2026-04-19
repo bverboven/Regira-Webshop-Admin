@@ -26,9 +26,6 @@
                     {{ getProduct(itemComponent.component)?.$title }}<span v-if="i < (item.components ?? []).length - 1">,</span>
                 </span>
             </div>
-            <div class="col-4 col-md-2 col-xl-1 text-truncate">
-                {{ formatCurrency(item.price, $culture) }}<span class="d-md-none">/{{ getUnitType(item.unitType)?.code }}</span>
-            </div>
             <div class="col-2 d-none d-md-block text-truncate">
                 <UnitTypeButton :model-value="item.unitType" />{{ getUnitType(item.unitType)?.$title }}
             </div>

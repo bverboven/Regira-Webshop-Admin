@@ -5,7 +5,6 @@
                 <IconButton icon="select" class="btn-default py-0 px-1 border-0" disabled />
             </div>
             <div class="col fw-bold">{{ $t("name") }}</div>
-            <div class="col-4 col-md-2 col-xl-1 fw-bold">{{ $t("price") }}</div>
             <div class="col-4 col-lg-2 d-none d-md-block fw-bold">
                 {{ $t("unitType") }}
             </div>
@@ -20,9 +19,6 @@
                     <FormModalButton :modelValue="item" class="p-1" />
                     {{ item.$title }}
                 </div>
-                <div class="col-4 col-md-2 col-xl-1 text-truncate">
-                    {{ formatCurrency(item.price, $culture) }}
-                </div>
                 <div class="col-4 col-lg-2 d-none d-md-block text-truncate">
                     <UnitTypeButton :model-value="item.unitType" />{{ getUnitType(item.unitType)?.$title }}
                 </div>
@@ -34,9 +30,7 @@
 <script setup lang="ts">
 import { computed } from "vue"
 import { type OverviewEmits } from "@/regira_modules/vue/entities"
-import { formatCurrency } from "@/regira_modules/vue/formatters"
 import { useEntityStore as useUnitTypeStore, FormModalButton as UnitTypeButton } from "@/entities/unit-types"
-import config from "../config/config"
 import type Entity from "../data/Entity"
 import useEntityStore from "../data/store"
 import FormModalButton from "../details/FormModalButton.vue"

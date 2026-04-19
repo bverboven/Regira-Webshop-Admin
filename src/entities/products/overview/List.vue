@@ -12,7 +12,6 @@
             <div class="d-none d-xl-block col-xl-3 fw-bold">
                 {{ $t("product.components") }}
             </div>
-            <div class="col-4 col-md-2 col-xl-1 fw-bold">{{ $t("price") }}</div>
             <div class="col-2 d-none d-md-block fw-bold">{{ $t("unitType") }}</div>
             <div class="col-auto fw-bold">
                 <Icon name="delete" class="text-muted m-1" />

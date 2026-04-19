@@ -339,11 +339,6 @@
         "fr": "Toutes les facettes",
         "nl": "Alle facetten"
     },
-    "product.allowAdditions": {
-        "en": "Allow additions",
-        "fr": "Autoriser les ajouts",
-        "nl": "Toevoegingen toestaan"
-    },
     "product.assembly": {
         "en": "Assembly",
         "fr": "Assemblage",
@@ -409,11 +404,6 @@
         "fr": "Est racine",
         "nl": "Is root"
     },
-    "product.prices": {
-        "en": "Prices",
-        "fr": "Prix",
-        "nl": "Prijzen"
-    },
     "product.suppliers": {
         "en": "Suppliers",
         "fr": "Fournisseurs",
@@ -450,9 +440,9 @@
         "nl": "Eenheidstype"
     },
     "unitType.description": {
-        "en": "Manage the different unit types that can be used for prices from products.",
-        "fr": "Gérez les différents types d'unités qui peuvent être utilisés pour les prix des produits.",
-        "nl": "Beheer de verschillende eenheidstypen die kunnen worden gebruikt voor prijzen van producten."
+        "en": "Manage the different unit types that can be used for measurement quantities of products.",
+        "fr": "Gérez les différents types d'unités qui peuvent être utilisés pour les quantités de mesure des produits.",
+        "nl": "Beheer de verschillende eenheidstypen die kunnen worden gebruikt voor meeteenheden van producten."
     },
     "unitTypes": {
         "en": "Unit Types",

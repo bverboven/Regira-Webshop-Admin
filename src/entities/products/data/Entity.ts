@@ -2,7 +2,6 @@ import { EntityBase } from "@/regira_modules/vue/entities"
 import { type Entity as UnitType } from "@/entities/unit-types"
 import type ProductComponent from "../product-components/Entity"
 import type ProductFacet from "../product-facets/Entity"
-import type ProductPricePeriod from "../product-prices/Entity"
 import type ProductSupplier from "../product-suppliers/Entity"
 
 export class Product extends EntityBase {
@@ -12,7 +11,6 @@ export class Product extends EntityBase {
 
     unitTypeId?: number
     defaultQuantity?: number
-    price?: number
 
     created?: Date
     lastModified?: Date
@@ -21,7 +19,6 @@ export class Product extends EntityBase {
     assemblies?: ProductComponent[]
     components?: ProductComponent[]
     facets?: ProductFacet[]
-    prices?: ProductPricePeriod[]
     suppliers?: ProductSupplier[]
 
     override get $id(): string | number {

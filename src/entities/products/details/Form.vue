@@ -72,10 +72,6 @@
                             </div>
                         </FormSection>
 
-                        <FormSection :title="$t('product.prices')">
-                            <PricesOverview v-model="item" />
-                        </FormSection>
-
                         <FormSection :title="$t('product.suppliers')" class="d-none d-lg-block">
                             <SupplierInputSelectorOverview v-model="item" />
                         </FormSection>
@@ -119,7 +115,6 @@
                 item: {
                     ...item,
                     unitType: item.unitType?.title,
-                    prices: item.prices?.map(({ id, price, startDate }) => `${startDate}  €${price} #${id}`),
                     components: item.components?.map(
                         ({ id, component, quantity }) => `${component?.title} (${quantity} ${component?.unitType?.title}) #${id}`
                     ),
@@ -143,7 +138,6 @@ import AssemblyOverview from "@/entities/products/product-assemblies/Overview.vu
 import ComponentOverview from "@/entities/products/product-components/Overview.vue"
 import { InputSelectorInline } from "@/entities/products/product-facets/"
 import { InputSelectorOverview as SupplierInputSelectorOverview } from "@/entities/products/product-suppliers/"
-import PricesOverview from "@/entities/products/product-prices/Overview.vue"
 import TreeOverview from "../tree/Overview.vue"
 import config from "../config/config"
 import Entity from "../data/Entity"

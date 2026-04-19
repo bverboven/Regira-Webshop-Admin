@@ -22,8 +22,6 @@ export class EntitySearchObject extends SearchObjectBase {
     isComponent?: boolean
     isAssembly?: boolean
 
-    allowAdditions?: boolean
-
     minCreated?: Date
     maxCreated?: Date
     minLastModified?: Date
