@@ -164,7 +164,10 @@ function toggleNode(node: TreeNode<TreeItem>) {
 
 async function load() {
     isLoading.value = true
-    const familyItems = await entityService.getFamily([props.item.id])
+    // also load siblings
+    const parentIds = props.item?.parentEntities?.map((p) => p.parentId) ?? []
+    const groupIds = props.item?.facetParentGroups?.map((g) => g.facetGroupId) ?? []
+    const familyItems = await entityService.getFamily([props.item.id, ...parentIds], groupIds)
     family.value = distinctBy(familyItems, (x: FamilyItem) => `${x.childId}_${x.parentId || 0}`)
     isLoading.value = false
 }
