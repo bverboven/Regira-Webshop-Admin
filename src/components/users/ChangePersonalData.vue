@@ -81,7 +81,6 @@ const model = reactive<IChangePersonalDataInput>({
 const { cultures } = useConfig()
 
 async function handleSubmit() {
-    console.debug("handleChangePersonalData", { model })
     feedback.reset()
     isLoading.value = true
     try {
@@ -98,7 +97,7 @@ async function handleSubmit() {
 }
 
 async function changePersonalData(input: IChangePersonalDataInput) {
-    const url = `user/personal-data`
+    const url = `profile/personal-data`
     const axios = useAxios()
     const response = await axios.post(url, input)
     console.debug("changePersonalData", { response })
