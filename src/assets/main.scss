@@ -13,7 +13,7 @@ main {
 }
 
 @media screen and (max-width: 576px) {
-    .page>.container-fluid {
+    .page > .container-fluid {
         padding-left: 0;
         padding-right: 0;
     }
@@ -45,7 +45,6 @@ textarea.form-control {
 }
 
 .input-group.floating {
-
     input,
     select {
         height: 3.5rem;
@@ -53,7 +52,6 @@ textarea.form-control {
 }
 
 .input-selector.floating {
-
     input,
     select {
         height: 3.5rem;
@@ -63,7 +61,6 @@ textarea.form-control {
 .hover-line:hover {
     opacity: 0.6;
 }
-
 
 .tree-indent {
     margin-left: 1rem;

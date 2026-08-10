@@ -37,7 +37,7 @@
             :engine="engine"
             class="tree-indent"
             @add-child="(child: Party, parent?: Party) => $emit('add-child', child, parent)"
-        @toggle-node="$emit('toggle-node', $event)"
+            @toggle-node="$emit('toggle-node', $event)"
         />
     </div>
 </template>

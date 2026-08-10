@@ -1,12 +1,11 @@
 <template>
     <InputSelectorInline v-model="facet.childEntities" :row-key="(r) => r.childId" :exclude-key="(r) => r.childId" @remove="handleRemove">
-        <template #chip="{ row }">
-            <FormModalButton :modelValue="row.child" /> {{ row.child?.title ?? "" }}
-        </template>
+        <template #chip="{ row }"> <FormModalButton :modelValue="row.child" /> {{ row.child?.title ?? "" }} </template>
         <template #selector="{ add, exclude }">
             <InputSelector
                 :filter-defaults="{ ...filterDefaults, exclude: [...new Set([...exclude, ...(filterDefaults?.exclude ?? [])])] }"
-                @select="(f?: Facet) => f && add(FacetChild.create({ parentId: facet.id, childId: f.id, child: f }))" />
+                @select="(f?: Facet) => f && add(FacetChild.create({ parentId: facet.id, childId: f.id, child: f }))"
+            />
         </template>
     </InputSelectorInline>
 </template>
