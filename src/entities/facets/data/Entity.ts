@@ -11,6 +11,7 @@ export class Facet extends EntityBase {
 
     created?: Date
     lastModified?: Date
+    isArchived: boolean = false
 
     parentEntities?: Array<FacetParent>
     childEntities?: Array<FacetChild>

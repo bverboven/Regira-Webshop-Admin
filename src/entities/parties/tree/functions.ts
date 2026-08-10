@@ -7,7 +7,9 @@ export function toTreeItems(selfId: number, family: Array<FamilyItem>): Array<Tr
     return ids.map((id) => {
         return TreeItem.create({
             id,
-            children: family.filter((x) => x.parentId === id).map(({ childId: id, relationshipTypeId, relationshipType }) => ChildItem.create({ id, relationshipTypeId, relationshipType })),
+            children: family
+                .filter((x) => x.parentId === id)
+                .map(({ childId: id, relationshipTypeId, relationshipType }) => ChildItem.create({ id, relationshipTypeId, relationshipType })),
         })
     })
 }
@@ -17,7 +19,9 @@ export function toReverseTreeItems(selfId: number, family: Array<FamilyItem>): A
     return ids.map((id) => {
         return TreeItem.create({
             id,
-            children: family.filter((x) => x.childId === id).map(({ parentId: id, relationshipTypeId, relationshipType }) => ChildItem.create({ id, relationshipTypeId, relationshipType })),
+            children: family
+                .filter((x) => x.childId === id)
+                .map(({ parentId: id, relationshipTypeId, relationshipType }) => ChildItem.create({ id, relationshipTypeId, relationshipType })),
         })
     })
 }

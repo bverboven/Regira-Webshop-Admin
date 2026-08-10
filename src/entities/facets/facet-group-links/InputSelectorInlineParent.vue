@@ -1,12 +1,16 @@
 <template>
-    <InputSelectorInline v-model="facet.facetParentGroups" :row-key="(r) => r.facetGroupId" :exclude-key="(r) => r.facetGroupId" @remove="handleRemove">
-        <template #chip="{ row }">
-            <FormModalButton :modelValue="row.facetGroup" /> {{ row.facetGroup?.title ?? "" }}
-        </template>
+    <InputSelectorInline
+        v-model="facet.facetParentGroups"
+        :row-key="(r) => r.facetGroupId"
+        :exclude-key="(r) => r.facetGroupId"
+        @remove="handleRemove"
+    >
+        <template #chip="{ row }"> <FormModalButton :modelValue="row.facetGroup" /> {{ row.facetGroup?.title ?? "" }} </template>
         <template #selector="{ add, exclude }">
             <InputSelector
                 :filter-defaults="{ ...filterDefaults, exclude: [...new Set([...exclude, ...(filterDefaults?.exclude ?? [])])] }"
-                @select="(g?: FacetGroup) => g && add(FacetFacetGroup.create({ facetId: facet.id, facetGroupId: g.id, facetGroup: g }))" />
+                @select="(g?: FacetGroup) => g && add(FacetFacetGroup.create({ facetId: facet.id, facetGroupId: g.id, facetGroup: g }))"
+            />
         </template>
     </InputSelectorInline>
 </template>

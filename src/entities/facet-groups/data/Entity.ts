@@ -10,6 +10,7 @@ export class FacetGroup extends EntityBase {
 
     created?: Date
     lastModified?: Date
+    isArchived: boolean = false
 
     parentFacets?: Array<FacetChildGroup>
     childFacets?: Array<FacetParentGroup>
