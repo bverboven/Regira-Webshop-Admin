@@ -172,10 +172,10 @@ const { translate } = useLang()
 const tabs = computed(() =>
     [
         Tab.create("form", { icon: "form", title: translate("form"), isDefault: true }),
-        !screen.isLarge ? Tab.create("components", { icon: "component", title: translate("product.components") }) : null,
+        !screen.isLarge ? Tab.create("components", { icon: "component", title: translate("product.components") }) : undefined,
         Tab.create("tree", { icon: "tree", title: translate("tree"), isDisabled: !item.value.components?.length }),
         Tab.create("assemblies", { icon: "assembly", title: translate("assemblies") }),
-        !screen.isLarge ? Tab.create("suppliers", { icon: "supplier", title: translate("product.suppliers") }) : null,
+        !screen.isLarge ? Tab.create("suppliers", { icon: "supplier", title: translate("product.suppliers") }) : undefined,
     ].filter((tab) => tab)
 )
 </script>

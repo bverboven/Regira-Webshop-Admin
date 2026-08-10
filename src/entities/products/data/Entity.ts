@@ -14,6 +14,7 @@ export class Product extends EntityBase {
 
     created?: Date
     lastModified?: Date
+    isArchived: boolean = false
 
     unitType?: UnitType
     assemblies?: ProductComponent[]
