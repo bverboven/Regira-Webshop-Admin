@@ -52,7 +52,7 @@ const props = withDefaults(
 const isArchived = computed(() => !!(props.item as { isArchived?: number | boolean } | undefined)?.isArchived)
 // disable submit/restore while a save/delete is in flight (or just succeeded) to block double-submits
 const busy = computed(() => {
-    const s = props.feedback.status.value
+    const s = props.feedback.status
     return s !== FeedbackStatus.none && s !== FeedbackStatus.failed
 })
 </script>
